@@ -76,12 +76,6 @@ public class Save {
 		this.user = user;
 		this.address = address;
 	}
-
-	public Save() {
-		super();
-	}
-	
-	
 	
 	
 	

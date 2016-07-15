@@ -133,27 +133,6 @@ public class Address {
 	public void setSaves(List<Save> saves) {
 		this.saves = saves;
 	}
-
-	public Address(int startIp, int endIp, String countryAbbreviation, String countryName, String region,
-			String city, double latitude, double longitude, String postalCode, List<Save> saves) {
-		super();
-		this.startIp = startIp;
-		this.endIp = endIp;
-		this.countryAbbreviation = countryAbbreviation;
-		this.countryName = countryName;
-		this.region = region;
-		this.city = city;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.postalCode = postalCode;
-		this.saves = saves;
-	}
-
-	public Address() {
-		super();
-	}
-	
-	
 	
 	
 	

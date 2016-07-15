@@ -103,12 +103,6 @@ public class User {
 		this.saves = saves;
 		this.userType = userType;
 	}
-
-	public User() {
-		super();
-	}
-	
-	
 	
 	
 

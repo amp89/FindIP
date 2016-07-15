@@ -148,12 +148,6 @@ public class Address {
 		this.postalCode = postalCode;
 		this.saves = saves;
 	}
-
-	public Address() {
-		super();
-	}
-	
-	
 	
 	
 	

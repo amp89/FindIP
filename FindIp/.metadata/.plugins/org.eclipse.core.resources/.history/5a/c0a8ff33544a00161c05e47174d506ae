@@ -63,11 +63,6 @@ public class UserType {
 		this.accessLevel = accessLevel;
 		this.users = users;
 	}
-
-	public UserType() {
-		super();
-	}
-	
 	
 	
 	
