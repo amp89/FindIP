@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AddressTest" project="FindIpJPA" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="unitTesting.AddressTest" time="3.899">
+    <testcase name="abbreviation" classname="unitTesting.AddressTest" time="2.518"/>
+    <testcase name="startIp" classname="unitTesting.AddressTest" time="0.22"/>
+    <testcase name="countryName" classname="unitTesting.AddressTest" time="0.138"/>
+    <testcase name="region" classname="unitTesting.AddressTest" time="0.206"/>
+    <testcase name="id" classname="unitTesting.AddressTest" time="0.152"/>
+    <testcase name="lat" classname="unitTesting.AddressTest" time="0.178"/>
+    <testcase name="lon" classname="unitTesting.AddressTest" time="0.149"/>
+    <testcase name="city" classname="unitTesting.AddressTest" time="0.109"/>
+    <testcase name="endIp" classname="unitTesting.AddressTest" time="0.124"/>
+    <testcase name="postalCode" classname="unitTesting.AddressTest" time="0.104"/>
+  </testsuite>
+</testrun>
