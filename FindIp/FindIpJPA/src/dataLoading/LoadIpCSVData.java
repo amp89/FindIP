@@ -38,11 +38,11 @@ public class LoadIpCSVData {
 		em.getTransaction().begin();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(FILEPATH));
+			br = new BufferedReader(new FileReader(FILEPATH),100000);
 			String line = "";
 			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
-			//TODO PUT THIS LINE BACK			while ((line = br.readLine()) != null) {
-				while (((line = br.readLine()) != null) && counter++ < 50 ) { //TODO REMOVE THIS LINE
+//			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
+				while (((line = br.readLine()) != null) && counter++ < 500000) { //TODO TEST LINE
 				
 				String[] lineTokens = line.trim().split("\",\"");
 				int startIp = Integer.parseInt(lineTokens[0].replace("\"", "").trim());
@@ -58,7 +58,6 @@ public class LoadIpCSVData {
 				Address newAddress = new Address(startIp, endIp, countryAbbreviation, countryName, region, city,
 						latitude, longitude, postalCode);
 				// persist addr
-				System.out.println(newAddress); // TODO remove test print out.
 				em.persist(newAddress);
 
 			}
@@ -67,6 +66,7 @@ public class LoadIpCSVData {
 			System.err.println(ioe);
 		} finally {
 			try {
+				System.out.println("LOAD HAS STOPPED");
 				br.close();
 			} catch (IOException ioe2) {
 				System.err.println(ioe2);
