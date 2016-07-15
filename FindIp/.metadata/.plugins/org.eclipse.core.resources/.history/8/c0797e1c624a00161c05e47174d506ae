@@ -40,10 +40,7 @@ public class LoadIpCSVData {
 		try {
 			br = new BufferedReader(new FileReader(FILEPATH));
 			String line = "";
-			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
-			//TODO PUT THIS LINE BACK			while ((line = br.readLine()) != null) {
-				while (((line = br.readLine()) != null) && counter++ < 50 ) { //TODO REMOVE THIS LINE
-				
+			while ((line = br.readLine()) != null) {
 				String[] lineTokens = line.trim().split("\",\"");
 				int startIp = Integer.parseInt(lineTokens[0].replace("\"", "").trim());
 				int endIp = Integer.parseInt(lineTokens[1].replace("\"", "").trim());
@@ -59,7 +56,6 @@ public class LoadIpCSVData {
 						latitude, longitude, postalCode);
 				// persist addr
 				System.out.println(newAddress); // TODO remove test print out.
-				em.persist(newAddress);
 
 			}
 
@@ -78,7 +74,6 @@ public class LoadIpCSVData {
 	}
 
 	// persist an object to the persistence unit
-	//TODO REMOVE TIS
 	private void persistLine(Object objectToPersist) {
 		em.getTransaction().begin();
 		em.persist(objectToPersist);

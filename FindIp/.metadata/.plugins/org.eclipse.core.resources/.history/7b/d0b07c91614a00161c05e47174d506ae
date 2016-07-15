@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -15,7 +13,6 @@ import javax.persistence.Table;
 public class Address {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
@@ -153,14 +150,6 @@ public class Address {
 
 	public Address() {
 		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", startIp=" + startIp + ", endIp=" + endIp + ", countryAbbreviation="
-				+ countryAbbreviation + ", countryName=" + countryName + ", region=" + region + ", city=" + city
-				+ ", latitude=" + latitude + ", longitude=" + longitude + ", postalCode=" + postalCode + ", saves="
-				+ saves + "]";
 	}
 	
 	
