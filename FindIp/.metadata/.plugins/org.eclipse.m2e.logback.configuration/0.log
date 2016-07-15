@@ -177,3 +177,49 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2016-07-14 23:47:35,835 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2016-07-14 23:47:35,837 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2016-07-14 23:47:35,838 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:08:24,531 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:08:24,534 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:08:24,535 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:08:24,536 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:08:58,289 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:08:58,290 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:08:58,292 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:08:58,292 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:10:53,954 [Worker-58] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:10:53,958 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:10:53,960 [Worker-58] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:10:53,960 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:13:50,250 [Worker-60] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: FindIpJPA:FindIpJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/pom.xml.
+2016-07-15 00:13:50,880 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:50,886 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-07-15 00:13:50,890 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:50,891 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:13:52,524 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:52,526 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:13:52,547 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:52,548 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:13:57,992 [Worker-53] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-07-15 00:13:58,433 [Worker-53] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: FindIpJPA:FindIpJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/pom.xml.
+2016-07-15 00:13:58,718 [Worker-53] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FindIpJPA/src
+2016-07-15 00:13:58,718 [Worker-53] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /FindIpJPA/src overlaps with sources folder /FindIpJPA/src
+2016-07-15 00:13:58,719 [Worker-53] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /FindIpJPA/src/test/java because it overlaps with /FindIpJPA/src
+2016-07-15 00:13:58,885 [Worker-53] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-07-15 00:13:59,377 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:59,378 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:13:59,393 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:13:59,394 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:14:13,062 [Worker-57] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: FindIpJPA:FindIpJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/pom.xml.
+2016-07-15 00:14:13,383 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:14:13,386 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-07-15 00:14:13,388 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:14:13,389 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources
+2016-07-15 00:14:22,815 [Worker-62] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-07-15 00:14:23,204 [Worker-62] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: FindIpJPA:FindIpJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/pom.xml.
+2016-07-15 00:14:23,880 [Worker-62] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /FindIpJPA/src
+2016-07-15 00:14:23,881 [Worker-62] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /FindIpJPA/src overlaps with sources folder /FindIpJPA/src
+2016-07-15 00:14:23,881 [Worker-62] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /FindIpJPA/src/test/java because it overlaps with /FindIpJPA/src
+2016-07-15 00:14:24,078 [Worker-62] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2016-07-15 00:14:25,014 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:14:25,016 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-15 00:14:25,030 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-15 00:14:25,031 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIpJPA/src/test/resources

@@ -4,28 +4,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.hibernate.annotations.SelectBeforeUpdate;
-
 public class LoadIpCSVData {
 
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 	private static String PERSISTENCE_UNIT_NAME = "ipdb";
 	public static void main(String[] args) {
-		//make new
-		LoadIpCSVData loader = new LoadIpCSVData();
-		
 		//setup entity mananger
-		loader.setupEntityManager();
-		//read and persist
-		loader.readAndPersist();
-		//close entity mananger
-		loader.closeEntityManager();
 		
-	}
-	
-	private void readAndPersist(){
-		System.out.println("READING");
+		//read and persist
+		
+		//close entity mananger
+		
+		
 	}
 	
 	private void setupEntityManager(){
