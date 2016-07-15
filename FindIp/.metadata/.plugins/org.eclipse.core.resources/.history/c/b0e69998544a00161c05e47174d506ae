@@ -6,8 +6,6 @@ import javax.persistence.Persistence;
 
 import org.hibernate.annotations.SelectBeforeUpdate;
 
-import entities.Address;
-
 public class LoadIpCSVData {
 
 	private EntityManagerFactory emf = null;
@@ -27,13 +25,7 @@ public class LoadIpCSVData {
 	}
 	
 	private void readAndPersist(){
-		//test things
 		System.out.println("READING");
-		Address testAddress = new Address(321,654,"US","'Murica","Region","City",21.654,64.654,"80010");
-		em.getTransaction().begin();
-		em.persist(testAddress);
-		em.getTransaction().commit();
-		
 	}
 	
 	private void setupEntityManager(){ 

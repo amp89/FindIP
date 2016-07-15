@@ -29,10 +29,7 @@ public class LoadIpCSVData {
 	private void readAndPersist(){
 		//test things
 		System.out.println("READING");
-		Address testAddress = new Address(321,654,"US","'Murica","Region","City",21.654,64.654,"80010");
-		em.getTransaction().begin();
-		em.persist(testAddress);
-		em.getTransaction().commit();
+		Address testAddress = new Address(321,654,"US","'Murica","Region","City",21.654,64.654,80010);
 		
 	}
 	
