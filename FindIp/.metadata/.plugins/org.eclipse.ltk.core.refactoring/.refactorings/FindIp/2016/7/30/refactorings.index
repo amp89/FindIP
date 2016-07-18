@@ -3,3 +3,5 @@
 1468803176233	Rename type 'IpDataDAO'
 1468803185600	Rename type 'IpDBDAO'
 1468806374578	Rename type 'UserDataHelpers'
+1468807620845	Rename type 'RestController'
+1468807628221	Rename type 'LoginController'
