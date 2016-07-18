@@ -10,7 +10,7 @@ public interface IpDAO {
 
 	// USER
 	// authenticate
-	public CurrentUser authenticateUser(User user);
+	public CurrentUser authenticateUser(UserLoginObject user);
 	// check missed loggins and authenticate
 
 	// user session data

@@ -19,9 +19,32 @@ public class IpMySQLDAO implements IpDAO {
 	}
 
 	// check missed loggins and authenticate
-	public CurrentUser authenticateUser(User user) {
-		return null;
+	public CurrentUser authenticateUser(UserLoginObject user) {
+		String email = user.getEmail().trim().toLowerCase();
+		String password = user.getPassword().trim().toLowerCase();
+		
+		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = :email",User.class).setParameter(":email",email).getSingleResult();		
+
+		//if login failed 5 times, lock account
+		if(loggedIn.getFailedLogins() < 5){
+			//check password
+			if(loggedIn.getPassword().trim().equals(password.trim())){
+				CurrentUser
+			}else{
+				loggedIn.setFailedLogins(loggedIn.getFailedLogins() + 1);
+				return null;
+			}
+		}else{
+			//send locked account email.
+			CurrentUser cu = new CurrentUser();
+			cu.setEmail(user.getEmail());
+			cu.setAccountLocked(true);
+			return cu;
+		}
+		//if login
+		return UserDataHelper.convertUserToCurrentUser(loggedIn);
 	}
+
 
 	// user session data
 	// get saves TODO nevermind - this is attached to the CurrentUser, which is

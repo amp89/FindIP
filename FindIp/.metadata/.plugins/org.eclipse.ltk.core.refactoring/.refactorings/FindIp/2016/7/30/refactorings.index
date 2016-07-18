@@ -9,3 +9,5 @@
 1468818302498	Delete element
 1468823075545	Copy file
 1468828585554	Encapsulate field 'accessToken'
+1468862331158	Encapsulate field 'accountLocked'
+1468875589971	Encapsulate field 'accessToken'

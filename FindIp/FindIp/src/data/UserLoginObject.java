@@ -30,9 +30,12 @@ public class UserLoginObject {
 		this.password = password;
 	}
 
+	
+
+
 	@Override
 	public String toString() {
-		return "UserLoginObject [email=" + email + ", password=" + password + "]";
+		return "UserLoginObject [email=" + email + ", password=" + password + ", accessToken=" + accessToken + "]";
 	}
 
 	public String getAccessToken() {

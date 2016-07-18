@@ -18,6 +18,11 @@ public class CurrentUser {
 	private List<Save> saves;
 
 	private UserType userType;
+	
+	private Boolean accountLocked;
+	
+	private String accessToken;
+	
 
 	public int getId() {
 		return id;
@@ -65,15 +70,22 @@ public class CurrentUser {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		if(userType != null){
-			return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType=" + userType.getName() + "]";
-			
-		}else{
-			return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType= unknown ]";
-			
-		}
+
+
+	public Boolean getAccountLocked() {
+		return accountLocked;
+	}
+
+	public void setAccountLocked(Boolean accountLocked) {
+		this.accountLocked = accountLocked;
+	}
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 	
 	
