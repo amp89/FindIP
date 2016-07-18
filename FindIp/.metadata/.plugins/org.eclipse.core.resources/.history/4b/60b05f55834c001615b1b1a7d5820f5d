@@ -1,0 +1,21 @@
+package data;
+
+import java.util.List;
+
+import org.hibernate.usertype.UserType;
+
+public class CurrentUser {
+
+	private int id;
+
+	private String email;
+
+)
+	private List<Save> saves;
+
+	private UserType userType;
+
+	
+	
+	
+}

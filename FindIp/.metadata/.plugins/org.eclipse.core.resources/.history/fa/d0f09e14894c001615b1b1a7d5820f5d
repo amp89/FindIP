@@ -1,0 +1,32 @@
+package data;
+
+import javax.persistence.PersistenceContext;
+
+import entities.User;
+
+public class IpMySQLDAO implements IpDAO{
+	@PersistenceContext
+	private EntityManger em;
+	
+	@Override
+	public CurrentUser getTestUser() {
+		// TODO Auto-generated method stub
+		User u = 
+		return null;
+	}
+
+	@Override
+	public User getUserById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getuserByEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+}

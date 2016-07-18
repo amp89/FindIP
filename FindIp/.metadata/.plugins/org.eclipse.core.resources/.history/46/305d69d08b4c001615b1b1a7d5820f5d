@@ -1,0 +1,27 @@
+package controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import data.CurrentUser;
+import data.IpDAO;
+
+@Controller
+@SessionAttributes({"currentUserLogin"})
+public class LoginController {
+	
+	@ModelAttribute("currentUserLogin")
+	private CurrentUser setBlankCurrentUserLogin(){
+		return new CurrentUser();
+	}
+	
+	@Autowired
+	private IpDAO dao;
+	
+	//TODO temporary redirect to search page
+	private 
+	
+
+}

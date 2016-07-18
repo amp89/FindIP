@@ -3,6 +3,7 @@
 	<name>FindIp</name>
 	<comment></comment>
 	<projects>
+		<project>FindIpJPA</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
