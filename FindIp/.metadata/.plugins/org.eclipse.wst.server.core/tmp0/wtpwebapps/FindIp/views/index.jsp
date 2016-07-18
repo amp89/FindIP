@@ -5,6 +5,6 @@
 <title>Welcome to FindIp</title>
 </head>
 <body>
-
+${testMSG}
 </body>
 </html>

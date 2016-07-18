@@ -32,7 +32,6 @@ public class IpLoginController{
 	@RequestMapping(path = "index", method=RequestMethod.GET)
 	private ModelAndView renderIndex(){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("testMSG","test message");
 		mv.addObject("user",new User());
 		mv.setViewName("index");
 		return mv;
