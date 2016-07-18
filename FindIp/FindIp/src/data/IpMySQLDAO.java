@@ -12,7 +12,7 @@ public class IpMySQLDAO implements IpDAO{
 	private EntityManager em;
 	
 	@Override
-	public CurrentUser getTestUser() {
+	public CurrentUser getTestUser() { //TODO test method
 		
 		return UserDataHelper.convertUserToCurrentUser(em.find(User.class, 1));
 	}

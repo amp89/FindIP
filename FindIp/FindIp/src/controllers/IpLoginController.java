@@ -25,10 +25,10 @@ public class IpLoginController {
 	@Autowired
 	private IpDAO dao;
 	
-	@RequestMapping(path = "index.html", method = RequestMethod.GET)
+	@RequestMapping(path = "index", method = RequestMethod.GET)
 	private ModelAndView renderIndexPage(HttpSession session, @ModelAttribute("currentUserLogin") CurrentUser currentUserLogin){
 		ModelAndView mv = new ModelAndView();
-		//TODO temporary redirect to search page
+		currentUserLogin = dao.getTestUser();
 		session.setAttribute("currentUserLogin", currentUserLogin);
 		mv.setViewName("search");
 		

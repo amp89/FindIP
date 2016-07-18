@@ -16,6 +16,7 @@ public class IpRestController {
 	@RequestMapping(value="/getLoggedInUserData")
 	private CurrentUser getLoggedInUserData(HttpSession session){
 		CurrentUser currentUserLogin = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("Rest Controller.  currentUserLogin: " + currentUserLogin);
 		return currentUserLogin;
 		
 		
