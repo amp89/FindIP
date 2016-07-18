@@ -18,19 +18,16 @@ public class IpMySQLDAO implements IpDAO {
 		return UserDataHelper.convertUserToCurrentUser(em.find(User.class, 1));
 	}
 
-	// check missed loggins and authenticate
 	public CurrentUser authenticateUser(User user) {
 		return null;
 	}
+	// check missed loggins and authenticate
 
 	// user session data
 	// get saves TODO nevermind - this is attached to the CurrentUser, which is
 	// attached
 	// to the session
-	public String confirmUserAccount(User user){
-		return null;
-	}
-	
+
 	// create save
 	public String saveIpAddress(Save save, Integer userId) {
 		return null;

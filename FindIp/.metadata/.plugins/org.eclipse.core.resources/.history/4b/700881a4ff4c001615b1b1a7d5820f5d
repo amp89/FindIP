@@ -24,8 +24,6 @@ public class IpLoginController{
 ////		return (CurrentUser) session.getAttribute("currentUserLogin");
 //	}
 //	
-	
-	
 	//TODO print session method
 	
 	@Autowired

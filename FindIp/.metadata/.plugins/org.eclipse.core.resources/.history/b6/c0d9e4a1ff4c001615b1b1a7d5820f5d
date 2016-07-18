@@ -17,14 +17,12 @@ import data.IpDAO;
 //@SessionAttributes({"currentUserLogin"})
 public class IpLoginController{
 	
-//	@ModelAttribute("currentUserLogin")
-//	private CurrentUser setBlankCurrentUserLogin(){
-////		return (CurrentUser) session.getAttribute("currentUserLogin");
-//		return dao.getTestUser();
-////		return (CurrentUser) session.getAttribute("currentUserLogin");
-//	}
-//	
-	
+	@ModelAttribute("currentUserLogin")
+	private CurrentUser setBlankCurrentUserLogin(){
+//		return (CurrentUser) session.getAttribute("currentUserLogin");
+		return dao.getTestUser();
+//		return (CurrentUser) session.getAttribute("currentUserLogin");
+	}
 	
 	//TODO print session method
 	

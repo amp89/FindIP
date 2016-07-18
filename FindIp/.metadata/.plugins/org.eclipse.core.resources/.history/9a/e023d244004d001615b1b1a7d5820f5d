@@ -27,10 +27,7 @@ public class IpMySQLDAO implements IpDAO {
 	// get saves TODO nevermind - this is attached to the CurrentUser, which is
 	// attached
 	// to the session
-	public String confirmUserAccount(User user){
-		return null;
-	}
-	
+
 	// create save
 	public String saveIpAddress(Save save, Integer userId) {
 		return null;
