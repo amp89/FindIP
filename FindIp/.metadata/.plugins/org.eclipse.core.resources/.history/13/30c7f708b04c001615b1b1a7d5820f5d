@@ -1,6 +1,8 @@
 package data;
 
-import entities.Save;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import entities.User;
 
 public interface IpDAO {

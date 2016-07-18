@@ -28,7 +28,7 @@ public class IpRestController{
 		
 	}//getLoggedInUserData
 	
-	//TODO test method, remove.
+	//TEST
 	@RequestMapping(value="/testRestPath", method=RequestMethod.GET, produces = "application/json")
 	private CurrentUser testRestPath(){
 		return dao.getTestUser();

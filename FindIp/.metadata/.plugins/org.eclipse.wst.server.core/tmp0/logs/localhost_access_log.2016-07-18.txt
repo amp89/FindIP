@@ -5,3 +5,4 @@
 0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/angular/angular.min.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
 0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/rest/getLoggedInUserData HTTP/1.1" 200 586
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:02:32 -0600] "GET /FindIp/rest/testRestPath HTTP/1.1" 200 586
