@@ -9,17 +9,9 @@
 <body>
 	HELLO WORLD
 	
-	<div ng-app>
-	<input type="text" placeholder="type stuff" ng-model="name" />
-	<h3 ng-show="name">{{name}}</h3>
-	{{"HELLO WORLD - ANGULAR"}}
-		</div>
 	
-	
-		<script src="js/jquery.js"></script>
-		<script src="js/test.js"></script>
-		<script src="angular/angular.min.js"></script>
-		
+		<script src="/js/jquery.js"></script>
+		<script src="/js/test.js"></script>
 	
 </body>
 </html>

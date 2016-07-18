@@ -10,7 +10,7 @@
 	HELLO WORLD
 	
 	<div ng-app>
-	<input type="text" placeholder="type stuff" ng-model="name" />
+	<input type="text" placeholder="type stuff" ng-mode="name" />
 	<h3 ng-show="name">{{name}}</h3>
 	{{"HELLO WORLD - ANGULAR"}}
 		</div>
