@@ -24,7 +24,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private Integer id;
 	
 	@Size(min=1, max=45)
 	@Column(name="email")
@@ -39,7 +39,7 @@ public class User {
 	private String confirmation_id;
 	
 	@Column(name="failed_logins")
-	private int failedLogins;
+	private Integer failedLogins;
 	
 	@JsonBackReference
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)

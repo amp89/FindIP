@@ -3,12 +3,14 @@ package controllers;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.CurrentUser;
 import data.IpDAO;
+import data.UserLoginObject;
 
 @RestController
 //@SessionAttributes({"currentUserLogin"})
@@ -33,5 +35,18 @@ public class IpRestController{
 	private CurrentUser testRestPath(){
 		return dao.getTestUser();
 	}
+	
+
+	
+	
+	
+	//TODO test method, remove
+	@RequestMapping(value="/testPostPath", method=RequestMethod.POST,produces = "application/json")
+	private String testPostPath(@RequestBody UserLoginObject ulo){
+		System.out.println(ulo);
+		return "{\"did it work????\":\"yesss\"}";
+	}
+	
+	
 	
 }

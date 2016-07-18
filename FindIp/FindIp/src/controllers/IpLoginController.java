@@ -30,7 +30,7 @@ public class IpLoginController{
 	private IpDAO dao;
 	
 
-	
+	//TODO test method
 	@RequestMapping(path = "index", method = RequestMethod.GET)
 	private ModelAndView renderIndexPage(HttpSession session){
 		ModelAndView mv = new ModelAndView();
@@ -38,10 +38,28 @@ public class IpLoginController{
 //		System.out.println(currentUserLogin);
 		session.setAttribute("currentUserLogin", dao.getTestUser());
 		System.out.println("on session: " + session.getAttribute("currentUserLogin"));
-		mv.setViewName("search");
-		
+		//TODO for testing
+//		mv.setViewName("search");
+		mv.setViewName("postTest");
 		return mv;
 	}
+	
+	
+	//TODO test method
+	@RequestMapping(path = "index2", method = RequestMethod.GET)
+	private ModelAndView renderIndexPage2(HttpSession session){
+		ModelAndView mv = new ModelAndView();
+//		currentUserLogin = dao.getTestUser();
+//		System.out.println(currentUserLogin);
+		session.setAttribute("currentUserLogin", dao.getTestUser());
+		System.out.println("on session: " + session.getAttribute("currentUserLogin"));
+		//TODO for testing
+//		mv.setViewName("search");
+		mv.setViewName("search");
+		return mv;
+	}
+	
+	
 	
 
 }

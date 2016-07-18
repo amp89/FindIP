@@ -40,7 +40,6 @@
 		// xhr.setRequestHeader("Content-type", "application/json");
 		// },
 //		dataType : "json"
-//		success: killme()
 	}).done(function(data) {
 		console.log(data);
 	}).fail(function() {
