@@ -5,20 +5,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>IP FIND | Search</title>
+
+
+		<script src="js/jquery.js"></script>
+		<script src="js/test.js"></script>
+		<script src="angular/angular.min.js"></script>
 </head>
 <body>
 	HELLO WORLD
 	
 	<div ng-app>
+	
+	<!-- test angular-->
 	<input type="text" placeholder="type stuff" ng-model="name" />
 	<h3 ng-show="name">{{name}}</h3>
-	{{"HELLO WORLD - ANGULAR"}}
+	<h4>{{"HELLO WORLD - ANGULAR"}}</h4>
 		</div>
+	<!-- end test angular -->
+	
+	<!-- test rest call -->
+	<script>
+		
+		$.getJSON("rest/getLoggedInUserData",null,function(data){
+			console.log(data);
+		})
+	
+	</script>
+	<!-- end test rest call -->
 	
 	
-		<script src="js/jquery.js"></script>
-		<script src="js/test.js"></script>
-		<script src="angular/angular.min.js"></script>
+
 		
 	
 </body>

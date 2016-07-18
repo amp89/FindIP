@@ -29,6 +29,7 @@ public class IpLoginController {
 	private ModelAndView renderIndexPage(HttpSession session, @ModelAttribute("currentUserLogin") CurrentUser currentUserLogin){
 		ModelAndView mv = new ModelAndView();
 		currentUserLogin = dao.getTestUser();
+		System.out.println(currentUserLogin);
 		session.setAttribute("currentUserLogin", currentUserLogin);
 		mv.setViewName("search");
 		

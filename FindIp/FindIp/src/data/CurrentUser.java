@@ -64,7 +64,14 @@ public class CurrentUser {
 
 	@Override
 	public String toString() {
-		return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType=" + userType.getName() + "]";
+		if(saves != null){
+			return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType=" + userType.getName() + "]";
+			
+		}else{
+//			return "CurrentUser [id=" + id + ", email=" + email + ", saves= NONE, userType=" + userType.getName() + "]";
+			return "TESTETSTSET";
+			
+		}
 	}
 
 	
