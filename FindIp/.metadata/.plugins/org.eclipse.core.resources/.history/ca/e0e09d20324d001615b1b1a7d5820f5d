@@ -61,9 +61,10 @@ public class IpLoginController{
 			//login success
 			else if(cu != null && !cu.getAccountLocked()){
 				session.setAttribute("currentUserLogin",cu);
-				mv.setViewName("search");
+//				mv.setViewName("search");
+				mv.setViewName("search.do");
 				mv.addObject("user",user);
-				return new ModelAndView("redirect:/search.do");
+				return mv;
 			}
 		}else{
 			System.out.println("BAD INPUT: " + user); //TODO remove
@@ -82,12 +83,14 @@ public class IpLoginController{
 	}
 	
 	
-	@RequestMapping(path = "search", method = RequestMethod.GET)
+	@RequestMapping(path = "search", method=RequestMethod.GET)
 	private ModelAndView setUpSearch(HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user",session.getAttribute("currentUserLogin"));
 		mv.setViewName("search");
 		return mv;
+		
+		
 	}
 	
 	//TODO test method

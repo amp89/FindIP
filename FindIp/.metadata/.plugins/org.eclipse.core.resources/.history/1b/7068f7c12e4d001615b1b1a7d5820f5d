@@ -87,16 +87,6 @@ public class CurrentUser {
 	public void setAccessToken(String accessToken) {
 		this.accessToken = accessToken;
 	}
-
-	@Override
-	public String toString() {
-		return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType=" + userType
-				+ ", accountLocked=" + accountLocked + ", accessToken=" + accessToken + ", getId()=" + getId()
-				+ ", getEmail()=" + getEmail() + ", getSaves()=" + getSaves() + ", getUserType()=" + getUserType()
-				+ ", getAccountLocked()=" + getAccountLocked() + ", getAccessToken()=" + getAccessToken()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
-	}
 	
 	
 

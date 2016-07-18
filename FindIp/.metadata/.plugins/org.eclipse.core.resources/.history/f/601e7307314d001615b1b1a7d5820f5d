@@ -76,15 +76,8 @@ public class UserType {
 
 	@Override
 	public String toString() {
-		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + "]";
+		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + ", users=" + users + "]";
 	}
-
-//	@Override
-//	public String toString() {
-//		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + ", users=" + users + "]";
-//	}
-//	
-	
 	
 	
 	

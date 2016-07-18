@@ -56,13 +56,13 @@ public class UserType {
 		this.accessLevel = accessLevel;
 	}
 
-//	public List<User> getUsers() {
-//		return users;
-//	}
-//
-//	public void setUsers(List<User> users) {
-//		this.users = users;
-//	}
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 
 	public UserType(String name, int accessLevel) {
 		super();
@@ -76,15 +76,8 @@ public class UserType {
 
 	@Override
 	public String toString() {
-		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + "]";
+		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + ", users=" + users + "]";
 	}
-
-//	@Override
-//	public String toString() {
-//		return "UserType [id=" + id + ", name=" + name + ", accessLevel=" + accessLevel + ", users=" + users + "]";
-//	}
-//	
-	
 	
 	
 	

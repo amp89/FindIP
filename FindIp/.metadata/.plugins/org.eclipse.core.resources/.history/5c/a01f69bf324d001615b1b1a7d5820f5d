@@ -63,7 +63,8 @@ public class IpLoginController{
 				session.setAttribute("currentUserLogin",cu);
 				mv.setViewName("search");
 				mv.addObject("user",user);
-				return new ModelAndView("redirect:/search.do");
+
+				return mv;
 			}
 		}else{
 			System.out.println("BAD INPUT: " + user); //TODO remove
@@ -82,13 +83,7 @@ public class IpLoginController{
 	}
 	
 	
-	@RequestMapping(path = "search", method = RequestMethod.GET)
-	private ModelAndView setUpSearch(HttpSession session){
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",session.getAttribute("currentUserLogin"));
-		mv.setViewName("search");
-		return mv;
-	}
+
 	
 	//TODO test method
 	@RequestMapping(path = "index2", method = RequestMethod.GET)

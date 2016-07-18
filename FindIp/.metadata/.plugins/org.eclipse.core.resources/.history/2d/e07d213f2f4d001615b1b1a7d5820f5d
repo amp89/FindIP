@@ -23,15 +23,13 @@ public class IpMySQLDAO implements IpDAO {
 		String email = user.getEmail().trim().toLowerCase();
 		String password = user.getPassword().trim().toLowerCase();
 		
-		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = :email",User.class).setParameter("email",email).getSingleResult();		
+		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = :email",User.class).setParameter(":email",email).getSingleResult();		
 
 		//if login failed 5 times, lock account
 		if(loggedIn.getFailedLogins() < 5){
 			//check password
 			if(loggedIn.getPassword().trim().equals(password.trim())){
 				CurrentUser cu = UserDataHelper.convertUserToCurrentUser(loggedIn);
-				cu.setAccountLocked(false);
-				loggedIn.setFailedLogins(0);
 				UserDataHelper.addAuthToken(cu);
 				return cu;
 			}else{

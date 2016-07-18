@@ -30,8 +30,6 @@ public class IpMySQLDAO implements IpDAO {
 			//check password
 			if(loggedIn.getPassword().trim().equals(password.trim())){
 				CurrentUser cu = UserDataHelper.convertUserToCurrentUser(loggedIn);
-				cu.setAccountLocked(false);
-				loggedIn.setFailedLogins(0);
 				UserDataHelper.addAuthToken(cu);
 				return cu;
 			}else{

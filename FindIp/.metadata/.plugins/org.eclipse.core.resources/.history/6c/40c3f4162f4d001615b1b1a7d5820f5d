@@ -51,6 +51,7 @@ public class IpLoginController{
 		if(errors.getErrorCount() == 0){
 			System.out.println("GOOD INPUT: " + user); //TODO remove
 			CurrentUser cu = dao.authenticateUser(user);
+			//if login is good
 			if(cu == null){
 				mv.addObject("message","Check your login credentials and try again.");
 				mv.addObject("user",user);
@@ -63,7 +64,7 @@ public class IpLoginController{
 				session.setAttribute("currentUserLogin",cu);
 				mv.setViewName("search");
 				mv.addObject("user",user);
-				return new ModelAndView("redirect:/search.do");
+				return mv;
 			}
 		}else{
 			System.out.println("BAD INPUT: " + user); //TODO remove
@@ -77,18 +78,10 @@ public class IpLoginController{
 		System.out.println("on session: " + session.getAttribute("currentUserLogin"));
 		//TODO for testing
 //		mv.setViewName("search");
-		mv.setViewName("index");
+		mv.setViewName("postTest");
 		return mv;
 	}
 	
-	
-	@RequestMapping(path = "search", method = RequestMethod.GET)
-	private ModelAndView setUpSearch(HttpSession session){
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",session.getAttribute("currentUserLogin"));
-		mv.setViewName("search");
-		return mv;
-	}
 	
 	//TODO test method
 	@RequestMapping(path = "index2", method = RequestMethod.GET)
