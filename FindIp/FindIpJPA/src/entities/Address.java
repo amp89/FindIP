@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="addresses")
 public class Address {
@@ -47,6 +49,7 @@ public class Address {
 	@Column(name="postal_code")
 	private String postalCode;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="address")
 	List<Save> saves;
 

@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -38,9 +41,11 @@ public class User {
 	@Column(name="failed_logins")
 	private int failedLogins;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
 	private List<Save> saves;
 	
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="user_type_id")
 	private UserType userType;

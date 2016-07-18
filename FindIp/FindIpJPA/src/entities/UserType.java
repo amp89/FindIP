@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="user_type")
 public class UserType {
@@ -25,6 +27,7 @@ public class UserType {
 	@Column(name="access_level")
 	private int accessLevel;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "userType")
 	List<User> users;
 

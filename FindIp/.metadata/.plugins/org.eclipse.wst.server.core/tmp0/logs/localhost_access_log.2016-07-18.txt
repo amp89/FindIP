@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:06 -0600] "GET /FindIp/ HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:53 -0600] "GET /FindIp/index.do HTTP/1.1" 200 1205
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/js/jquery.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/js/test.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/angular/angular.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
+0:0:0:0:0:0:0:1 - - [18/Jul/2016:00:00:54 -0600] "GET /FindIp/rest/getLoggedInUserData HTTP/1.1" 200 586

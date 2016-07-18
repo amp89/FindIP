@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="saves")
 public class Save {
@@ -25,10 +27,12 @@ public class Save {
 	@Column(name="private_comment")
 	private String privateComment;
 	
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="users_id")
 	private User user;
 	
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="addresses_id")
 	private Address address;

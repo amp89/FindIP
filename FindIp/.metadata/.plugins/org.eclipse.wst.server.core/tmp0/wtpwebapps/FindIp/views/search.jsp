@@ -26,9 +26,26 @@
 	<!-- test rest call -->
 	<script>
 		
-		$.getJSON("rest/getLoggedInUserData",null,function(data){
-			console.log(data);
-		})
+	$.ajax({
+		type : "GET",
+//		url : "http://localhost:8080/AJAX/rest/ping",
+		 url:"rest/getLoggedInUserData",
+		 
+		headers : {
+			"Accept" : "application/json",
+			"Content-Type" : "applicatoin/json"
+		}
+		// beforeSend: function(xhr) {
+		// // xhr.setRequestHeader("Accept", "application/json");
+		// xhr.setRequestHeader("Content-type", "application/json");
+		// },
+//		dataType : "json"
+//		success: killme()
+	}).done(function(data) {
+		console.log(data);
+	}).fail(function() {
+		console.log("failed");
+	});
 	
 	</script>
 	<!-- end test rest call -->
