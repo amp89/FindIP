@@ -14,23 +14,30 @@ import data.CurrentUser;
 import data.IpDAO;
 
 @Controller
-@SessionAttributes({"currentUserLogin"})
-public class IpLoginController {
+//@SessionAttributes({"currentUserLogin"})
+public class IpLoginController{
 	
 	@ModelAttribute("currentUserLogin")
 	private CurrentUser setBlankCurrentUserLogin(){
-		return new CurrentUser();
+//		return (CurrentUser) session.getAttribute("currentUserLogin");
+		return dao.getTestUser();
+//		return (CurrentUser) session.getAttribute("currentUserLogin");
 	}
+	
+	//TODO print session method
 	
 	@Autowired
 	private IpDAO dao;
 	
+
+	
 	@RequestMapping(path = "index", method = RequestMethod.GET)
-	private ModelAndView renderIndexPage(HttpSession session, @ModelAttribute("currentUserLogin") CurrentUser currentUserLogin){
+	private ModelAndView renderIndexPage(HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		currentUserLogin = dao.getTestUser();
-		System.out.println(currentUserLogin);
-		session.setAttribute("currentUserLogin", currentUserLogin);
+//		currentUserLogin = dao.getTestUser();
+//		System.out.println(currentUserLogin);
+		session.setAttribute("currentUserLogin", dao.getTestUser());
+		System.out.println("on session: " + session.getAttribute("currentUserLogin"));
 		mv.setViewName("search");
 		
 		return mv;

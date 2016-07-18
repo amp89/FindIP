@@ -24,6 +24,12 @@
            <url-pattern>/rest/*</url-pattern>
      </servlet-mapping>      
      
+        <listener>
+	<listener-class>
+		org.springframework.web.context.request.RequestContextListener
+	</listener-class>
+   </listener>
+     
 <!-- 	<error-page>
   		<location>/error.jsp</location>
 	</error-page>  -->

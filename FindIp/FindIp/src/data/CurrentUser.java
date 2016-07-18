@@ -5,7 +5,10 @@ import java.util.List;
 import entities.Save;
 import entities.UserType;
 
-
+//TODO remove unused annotation
+//@Component
+//@Scope("session")
+//@SessionScope
 public class CurrentUser {
 
 	private int id;
@@ -64,15 +67,16 @@ public class CurrentUser {
 
 	@Override
 	public String toString() {
-		if(saves != null){
+		if(userType != null){
 			return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType=" + userType.getName() + "]";
 			
 		}else{
-//			return "CurrentUser [id=" + id + ", email=" + email + ", saves= NONE, userType=" + userType.getName() + "]";
-			return "TESTETSTSET";
+			return "CurrentUser [id=" + id + ", email=" + email + ", saves=" + saves + ", userType= unknown ]";
 			
 		}
 	}
+	
+	
 
 	
 	
