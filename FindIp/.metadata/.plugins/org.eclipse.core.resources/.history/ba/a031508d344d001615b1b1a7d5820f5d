@@ -81,7 +81,14 @@ public class IpLoginController{
 		return mv;
 	}
 	
-
+	
+	@RequestMapping(path = "search", method = RequestMethod.GET)
+	private ModelAndView setUpSearch(HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user",session.getAttribute("currentUserLogin"));
+		mv.setViewName("search");
+		return mv;
+	}
 	
 	//TODO test method
 	@RequestMapping(path = "index2", method = RequestMethod.GET)
