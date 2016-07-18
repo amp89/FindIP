@@ -4,12 +4,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import data.CurrentUser;
 import data.IpDAO;
-import entities.User;
 
 @Controller
 //@SessionAttributes({"currentUserLogin"})
@@ -29,16 +31,9 @@ public class IpLoginController{
 	@Autowired
 	private IpDAO dao;
 	
-	@RequestMapping(path = "index", method=RequestMethod.GET)
-	private ModelAndView renderIndex(){
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",new User());
-		mv.setViewName("index");
-		return mv;
-	}
 
 	//TODO test method
-	@RequestMapping(path = "login", method = RequestMethod.GET)
+	@RequestMapping(path = "index", method = RequestMethod.GET)
 	private ModelAndView renderIndexPage(HttpSession session){
 		ModelAndView mv = new ModelAndView();
 //		currentUserLogin = dao.getTestUser();
