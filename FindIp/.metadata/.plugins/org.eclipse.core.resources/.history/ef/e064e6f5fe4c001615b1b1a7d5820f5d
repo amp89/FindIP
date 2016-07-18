@@ -14,7 +14,7 @@ public interface IpDAO {
 	// check missed loggins and authenticate
 
 	// user session data
-	// get saves TODO nevermind -  this is attached to the CurrentUser, which is attached
+	// get saves TODO no this is attached to the CurrentUser, which is attached
 	// to the session
 
 	// create save
@@ -48,15 +48,10 @@ public interface IpDAO {
 
 	// remove
 	public String removeUser(Integer userId);
-	//remove all saves
-	//remove the user
 
 	// IP SEARCH
 
 	// search
 	public String getIpStats(Integer ipAddress);
-	
-	//get public comments for an address
-	public String getIpPublicComments(Integer addressId);
 
 }
