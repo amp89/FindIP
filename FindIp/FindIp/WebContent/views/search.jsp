@@ -11,40 +11,68 @@
 		<script src="js/test.js"></script>
 		<script src="angular/angular.min.js"></script>
 </head>
-<body>
-	HELLO WORLD
-	
-	<div ng-app>
-	
-	<!-- test angular-->
-	<input type="text" placeholder="type stuff" ng-model="name" />
-	<h3 ng-show="name">{{name}}</h3>
-	<h4>{{"HELLO WORLD - ANGULAR"}}</h4>
-		</div>
+<body ng-app="searchApp">
+	<div ng-controller="searchForm">
+		<form ng-submit="getIpInfo()">
+			<input ng-maxlength="3" placeholder="Enter IP" name="first" ng-model="ipSearchData.first" required/>.
+			<input type="text" placeholder="Enter IP" name="second"  ng-model="ipSearchData.second" required/>.
+			<input type="text" placeholder="Enter IP" name="third"  ng-model="ipSearchData.third" required/>.
+			<input type="text" placeholder="Enter IP" name="fourth"  ng-model="ipSearchData.fourth" required/>
+			<button type="submit">SEARCH</button>
+		</form>
+		TO Search: <span ng-show="ipSearchData.first">{{ipSearchData.first}}</span><span ng-show="ipSearchData.second">.{{ipSearchData.second}}</span><span ng-show="ipSearchData.third">.{{ipSearchData.third}}</span><span ng-show="ipSearchData.fourth">.{{ipSearchData.fourth}}</span>
+	</div>
 	<!-- end test angular -->
 	
 	<!-- test rest call -->
 	<script>
-		
+	/* old way		
 	$.ajax({
 		type : "GET",
-//		url : "http://localhost:8080/AJAX/rest/ping",
-		 url:"rest/getLoggedInUserData",
-		 
+		 url:"rest/getLoggedInUserData", 
 		headers : {
 			"Accept" : "application/json",
 			"Content-Type" : "applicatoin/json"
 		}
-		// beforeSend: function(xhr) {
-		// // xhr.setRequestHeader("Accept", "application/json");
-		// xhr.setRequestHeader("Content-type", "application/json");
-		// },
-//		dataType : "json"
 	}).done(function(data) {
 		console.log(data);
+		$scope.userObject = data;
 	}).fail(function() {
 		console.log("failed");
+	}); */
+	
+	var app = angular.module('searchApp',[]);
+	
+	
+	app.controller('searchForm',function($scope,$http){
+		//request her/*  */e TODO
+		$scope.ipSearchData = {};
+		
+		$scope.ipSearchData.accessToken="${accessToken}"
+		
+		//$scope.ipSearchData.accessToken = 'testjlskjfdlsdkfj';
+		$scope.getIpInfo = function(){
+			console.log("IP: " + $scope.ipSearchData);
+			
+			$http({
+				method:"POST",
+				url:"rest/getIpData",
+				data:$scope.ipSearchData,
+				params : {"content-type":"application/json","Accept" : "application/json"}
+			}).then(function success(response){
+				console.log("Post Ip search :)");
+			}, function error(response){
+				console.log("No post search :(");
+			});//end http
+			
+		};//end get info
+		
+		
 	});
+	
+	
+	
+	
 	
 	</script>
 	<!-- end test rest call -->

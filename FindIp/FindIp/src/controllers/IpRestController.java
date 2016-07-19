@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.CurrentUser;
 import data.IpDAO;
+import data.IpSearchObject;
 import data.UserLoginObject;
+import entities.Address;
 
 @RestController
 //@SessionAttributes({"currentUserLogin"})
@@ -45,6 +47,12 @@ public class IpRestController{
 	private String testPostPath(@RequestBody UserLoginObject ulo){
 		System.out.println(ulo);
 		return "{\"did it work????\":\"yesss\"}";
+	}
+	
+	@RequestMapping(value="/getIpData", method=RequestMethod.POST, produces = "application/json")
+	private Address getIpData(@RequestBody IpSearchObject ipso){
+		System.out.println(ipso);
+		return null;
 	}
 	
 	

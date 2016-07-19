@@ -15,7 +15,9 @@ public class IpNavigationController {
 	@RequestMapping(path = "search", method = RequestMethod.GET)
 	private ModelAndView setUpSearch(HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",session.getAttribute("currentUserLogin"));
+		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
+		mv.addObject("user",cu);
+		mv.addObject("accessToken",cu.getAccessToken());
 		mv.setViewName("search");
 		return mv;
 	}
