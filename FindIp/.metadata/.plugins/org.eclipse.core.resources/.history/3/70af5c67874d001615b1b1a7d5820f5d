@@ -1,0 +1,13 @@
+package dataHelpers;
+
+public class AddressDataHelper {
+
+	public static int convertIpAddressToNumber(String address){
+		
+	}
+	
+	public static String convertIpNumberToAddress(int number){
+		
+	}
+	
+}

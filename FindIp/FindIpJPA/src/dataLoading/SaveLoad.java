@@ -13,7 +13,7 @@ public class SaveLoad {
 	private EntityManager em = null;
 	private static String PERSISTENCE_UNIT_NAME = "ipdb";
 	private static int USER_ID_TO_SAVE = 1;
-	private static int IP_ID_TO_SAVE = 5202138;
+	private static int IP_ID_TO_SAVE = 16;
 
 	public static void main(String[] args) {
 

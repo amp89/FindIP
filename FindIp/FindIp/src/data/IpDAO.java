@@ -56,7 +56,7 @@ public interface IpDAO {
 	// IP SEARCH
 
 	// search
-	public Address getIpStats(String ipAddress);
+	public Address getIpStats(IpSearchObject ipso);
 	
 	//get public comments for an address
 	public String getIpPublicComments(Integer addressId);

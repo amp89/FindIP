@@ -63,6 +63,7 @@
 				params : {"content-type":"application/json","Accept" : "application/json"}
 			}).then(function success(response){
 				console.log("Post Ip search :)");
+				console.log(response.data);
 			}, function error(response){
 				console.log("No post search :(");
 			});//end http

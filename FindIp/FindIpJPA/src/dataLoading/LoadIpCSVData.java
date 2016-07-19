@@ -38,6 +38,7 @@ public class LoadIpCSVData {
 		em.getTransaction().begin();
 		BufferedReader br = null;
 		try {
+			System.out.println("Start Read");
 			br = new BufferedReader(new FileReader(FILEPATH),100000);
 			String line = "";
 			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
@@ -78,12 +79,6 @@ public class LoadIpCSVData {
 	}
 
 	// persist an object to the persistence unit
-	//TODO REMOVE TIS
-	private void persistLine(Object objectToPersist) {
-		em.getTransaction().begin();
-		em.persist(objectToPersist);
-		em.getTransaction().commit();
-	}
 
 	private void setupEntityManager() {
 		emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

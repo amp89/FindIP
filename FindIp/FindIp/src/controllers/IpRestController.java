@@ -51,10 +51,13 @@ public class IpRestController{
 	
 	@RequestMapping(value="/getIpData", method=RequestMethod.POST, produces = "application/json")
 	private Address getIpData(HttpSession session, @RequestBody IpSearchObject ipso){
-		System.out.println(ipso); //TODO debug printout only
+		System.out.println("Search params: " + ipso); //TODO debug printout only
 		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
-		if(cu.getAccessToken() == ipso.getAccessToken()){
-			dao.getIpStats(ipso);
+		System.out.println("USER TOKEN: " + cu.getAccessToken());
+		System.out.println("REST TOKEN: " + ipso.getAccessToken());
+		if(cu.getAccessToken().equals(ipso.getAccessToken())){
+			Address ipAddress = dao.getIpStats(ipso);
+			return ipAddress;
 		}else{
 			System.out.println("INVALID"); //TODO invalid
 			return null;

@@ -1,8 +1,11 @@
 package data;
 
+import java.math.BigInteger;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import dataHelpers.AddressDataHelper;
 import dataHelpers.UserDataHelper;
 import entities.Address;
 import entities.Save;
@@ -113,9 +116,14 @@ public class IpMySQLDAO implements IpDAO {
 
 	// search
 	public Address getIpStats(IpSearchObject ipso) {
-		String[] ipAddressParts = ipso.getIpAddress().trim().split(".");
-		//TODO split into parts
-		return null;
+		System.out.println("IN DAO: IPSO: " + ipso.getIpAddress());//TODO DEBUG
+		Long ipNumber = AddressDataHelper.convertIpAddressToNumber(ipso.getIpAddress());
+		BigInteger bigIp = BigInteger.valueOf(ipNumber);
+		Address address = em.createQuery("Select a from Address a WHERE"
+				+ " startIp <= :ipNumber AND endIp >= :ipNumber",Address.class)
+				.setParameter("ipNumber",bigIp).getSingleResult();
+		System.out.println(address);
+		return address;
 	}
 
 	// get public comments for an address

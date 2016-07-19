@@ -1,0 +1,31 @@
+package dataHelpers;
+
+public class AddressDataHelper {
+
+	public static int convertIpAddressToNumber(String address){
+		String[] ipAddressParts = address.trim().split(".");
+		//translate to ip number:
+		int w = Integer.parseInt(ipAddressParts[0].trim());
+		int x = Integer.parseInt(ipAddressParts[1].trim());
+		int y = Integer.parseInt(ipAddressParts[2].trim());
+		int z = Integer.parseInt(ipAddressParts[3].trim());
+		
+		int ipAddress = 1677216*w + 65536*x + 256*y + z;
+		System.out.println(ipAddress); //TODO debug, remove
+		return ipAddress;
+		
+	}
+	
+	public static String convertIpNumberToAddress(int ipNumber){
+		
+		int w = (ipNumber/16777216)%256;
+		int x = (ipNumber/65536)%256;
+		int y = (ipNumber/256)%256;
+		int z = ipNumber%256;
+		
+		int ipAddress = 1677216*w + 65536*x + 256*y + z;
+		System.out.println(ipAddress); //TODO debug, remove
+		return ipAddress;
+	}
+	
+}
