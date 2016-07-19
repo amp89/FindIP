@@ -46,8 +46,8 @@ public class LoadIpCSVData {
 				while (((line = br.readLine()) != null) && counter++ < 500000) { //TODO TEST LINE
 				
 				String[] lineTokens = line.trim().split("\",\"");
-				Long startIp = Long.parseLong(lineTokens[0].replace("\"", "").trim());
-				Long endIp = Long.parseLong(lineTokens[1].replace("\"", "").trim());
+				int startIp = Integer.parseInt(lineTokens[0].replace("\"", "").trim());
+				int endIp = Integer.parseInt(lineTokens[1].replace("\"", "").trim());
 				String countryAbbreviation = lineTokens[2].replace("\"", "").trim();
 				String countryName = lineTokens[3].replace("\"", "").trim();
 				String region = lineTokens[4].replace("\"", "").trim();

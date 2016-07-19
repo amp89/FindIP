@@ -15,7 +15,7 @@ public class AddressDataHelper {
 		int x = Integer.parseInt(ipAddressParts[1].trim());
 		int y = Integer.parseInt(ipAddressParts[2].trim());
 		int z = Integer.parseInt(ipAddressParts[3].trim());
-		long ipNumber = (long)(16777216*w + 65536*x + 256*y + z);
+		long ipNumber = (long)(1677216*w + 65536*x + 256*y + z);
 		System.out.println("ip num: " + ipNumber); //TODO debug, remove
 		return ipNumber;
 		

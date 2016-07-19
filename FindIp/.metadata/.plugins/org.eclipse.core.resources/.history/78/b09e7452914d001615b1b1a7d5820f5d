@@ -62,19 +62,19 @@ public class Address {
 		this.id = id;
 	}
 
-	public long getStartIp() {
+	public Long getStartIp() {
 		return startIp;
 	}
 
-	public void setStartIp(long startIp) {
+	public void setStartIp(Long startIp) {
 		this.startIp = startIp;
 	}
 
-	public long getEndIp() {
+	public Long getEndIp() {
 		return endIp;
 	}
 
-	public void setEndIp(long endIp) {
+	public void setEndIp(Long endIp) {
 		this.endIp = endIp;
 	}
 

@@ -118,13 +118,14 @@ public class IpMySQLDAO implements IpDAO {
 	public Address getIpStats(IpSearchObject ipso) {
 		System.out.println("IN DAO: IPSO: " + ipso.getIpAddress());//TODO DEBUG
 		Long ipNumber = AddressDataHelper.convertIpAddressToNumber(ipso.getIpAddress());
-		//return a list in case of duplicates, and choose the first one
-		List<Address> addressResultList = em.createQuery("Select a from Address a WHERE"
+		List<Address> address = em.createQuery("Select a from Address a WHERE"
 				+ " a.startIp <= :ipNumber AND a.endIp >= :ipNumber",Address.class)
 				.setParameter("ipNumber",ipNumber).getResultList();
 //		System.out.println(address);
-		
-		return addressResultList.get(1);
+		for (Address address2 : address) {
+			System.out.println(address2);
+		}
+		return null;
 	}
 
 	// get public comments for an address

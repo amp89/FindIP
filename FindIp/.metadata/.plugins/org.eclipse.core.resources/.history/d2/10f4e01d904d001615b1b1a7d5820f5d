@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,7 +50,7 @@ public class Address {
 	private String postalCode;
 	
 	@JsonBackReference
-	@OneToMany(mappedBy="address", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="address")
 	List<Save> saves;
 
 	public int getId() {
@@ -62,19 +61,19 @@ public class Address {
 		this.id = id;
 	}
 
-	public long getStartIp() {
+	public Long getStartIp() {
 		return startIp;
 	}
 
-	public void setStartIp(long startIp) {
+	public void setStartIp(Long startIp) {
 		this.startIp = startIp;
 	}
 
-	public long getEndIp() {
+	public Long getEndIp() {
 		return endIp;
 	}
 
-	public void setEndIp(long endIp) {
+	public void setEndIp(Long endIp) {
 		this.endIp = endIp;
 	}
 
@@ -143,10 +142,10 @@ public class Address {
 	}
 
 
-	public Address(Long startIp, Long endIp, String countryAbbreviation, String countryName, String region,
-			String city, double latitude, double longitude, String postalCode) {
+	public Address(int id, Long startIp, Long endIp, String countryAbbreviation, String countryName, String region,
+			String city, double latitude, double longitude, String postalCode, List<Save> saves) {
 		super();
-
+		this.id = id;
 		this.startIp = startIp;
 		this.endIp = endIp;
 		this.countryAbbreviation = countryAbbreviation;
@@ -156,7 +155,7 @@ public class Address {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.postalCode = postalCode;
-
+		this.saves = saves;
 	}
 
 	public Address() {

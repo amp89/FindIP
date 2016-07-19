@@ -1,6 +1,6 @@
 package data;
 
-import java.util.List;
+import java.math.BigInteger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -118,13 +118,12 @@ public class IpMySQLDAO implements IpDAO {
 	public Address getIpStats(IpSearchObject ipso) {
 		System.out.println("IN DAO: IPSO: " + ipso.getIpAddress());//TODO DEBUG
 		Long ipNumber = AddressDataHelper.convertIpAddressToNumber(ipso.getIpAddress());
-		//return a list in case of duplicates, and choose the first one
-		List<Address> addressResultList = em.createQuery("Select a from Address a WHERE"
-				+ " a.startIp <= :ipNumber AND a.endIp >= :ipNumber",Address.class)
-				.setParameter("ipNumber",ipNumber).getResultList();
-//		System.out.println(address);
-		
-		return addressResultList.get(1);
+		BigInteger bigIp = BigInteger.valueOf(ipNumber);
+		Address address = em.createQuery("Select a from Address a WHERE"
+				+ " startIp <= :ipNumber AND endIp >= :ipNumber",Address.class)
+				.setParameter("ipNumber",bigIp).getSingleResult();
+		System.out.println(address);
+		return address;
 	}
 
 	// get public comments for an address
