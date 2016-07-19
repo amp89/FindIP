@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import dataHelpers.UserDataHelper;
-import entities.Address;
 import entities.Save;
 import entities.User;
 
@@ -112,9 +111,7 @@ public class IpMySQLDAO implements IpDAO {
 	// IP SEARCH
 
 	// search
-	public Address getIpStats(IpSearchObject ipso) {
-		String[] ipAddressParts = ipso.getIpAddress().trim().split(".");
-		//TODO split into parts
+	public Address getIpStats(Integer ipAddress) {
 		return null;
 	}
 

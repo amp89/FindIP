@@ -54,7 +54,7 @@ public class IpRestController{
 		System.out.println(ipso); //TODO debug printout only
 		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
 		if(cu.getAccessToken() == ipso.getAccessToken()){
-			dao.getIpStats(ipso);
+			dao.getIpStatis(ipso);
 		}else{
 			System.out.println("INVALID"); //TODO invalid
 			return null;

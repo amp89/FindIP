@@ -1,6 +1,5 @@
 package data;
 
-import entities.Address;
 import entities.Save;
 import entities.User;
 
@@ -56,7 +55,7 @@ public interface IpDAO {
 	// IP SEARCH
 
 	// search
-	public Address getIpStats(String ipAddress);
+	public String getIpStats(Integer ipAddress);
 	
 	//get public comments for an address
 	public String getIpPublicComments(Integer addressId);
