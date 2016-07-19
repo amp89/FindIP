@@ -11,22 +11,21 @@
 		<script src="js/test.js"></script>
 		<script src="angular/angular.min.js"></script>
 </head>
-<body ng-app="searchApp">
-	<div ng-controller="searchForm">
-		<form ng-submit="getIpInfo()">
-			<input ng-maxlength="3" placeholder="Enter IP" name="first" ng-model="ipSearchData.first" required/>.
-			<input type="text" placeholder="Enter IP" name="second"  ng-model="ipSearchData.second" required/>.
-			<input type="text" placeholder="Enter IP" name="third"  ng-model="ipSearchData.third" required/>.
-			<input type="text" placeholder="Enter IP" name="fourth"  ng-model="ipSearchData.fourth" required/>
-			<button type="submit">SEARCH</button>
+<body ng-app="searchApp"  ng-controller="searchForm">
+	<div ng-submit="getIpInfo()">
+		Enter a valid ip address, <!-- <br>&nbsp;&nbsp;&nbsp;ex: x.x.x.x, xxx.xx.xx.xxx, xxx.xxx.xxx.xxx, and so on. -->
+		<form  name="ipSearchForm">
+			<input name="ipAddress" type="text" ng-pattern="regex" ng-minlength="7" ng-maxlength="15" ng-model=ipSearchData.ipAddress required/>
+			<button type="submit" ng-disabled="ipSearchForm.$invalid">SEARCH</button>
 		</form>
-		TO Search: <span ng-show="ipSearchData.first">{{ipSearchData.first}}</span><span ng-show="ipSearchData.second">.{{ipSearchData.second}}</span><span ng-show="ipSearchData.third">.{{ipSearchData.third}}</span><span ng-show="ipSearchData.fourth">.{{ipSearchData.fourth}}</span>
+		<span ng-hide="ipSearchForm.$invalid">Ip To Lookup: {{ipSearchData.ipAddress}}</span>
+		<span ng-show="ipSearchForm.$invalid">Please use this format: 255.255.255.255</span>
 	</div>
 	<!-- end test angular -->
 	
 	<!-- test rest call -->
 	<script>
-	/* old way		
+/* 	 old way		
 	$.ajax({
 		type : "GET",
 		 url:"rest/getLoggedInUserData", 
@@ -45,6 +44,9 @@
 	
 	
 	app.controller('searchForm',function($scope,$http){
+		
+		$scope.regex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$"
+		
 		//request her/*  */e TODO
 		$scope.ipSearchData = {};
 		
