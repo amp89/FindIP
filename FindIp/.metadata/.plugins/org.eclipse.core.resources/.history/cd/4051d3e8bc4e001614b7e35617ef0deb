@@ -1,0 +1,18 @@
+package dataHelpers;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import data.IpSaveObject;
+import entities.Save;
+
+public class SaveDataHelper {
+
+	@PersistenceContext
+	private EntityManager em;
+
+	public static Save convertIpSaveObjectToSave(IpSaveObject saveObject){
+		
+	}
+
+}

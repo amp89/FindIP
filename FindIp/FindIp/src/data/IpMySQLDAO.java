@@ -65,8 +65,9 @@ public class IpMySQLDAO implements IpDAO {
 	
 	// create save
 	public String saveIpAddress(IpSaveObject saveObject, Integer userId) {
-		Save save = SaveDataHelper.convertIpSaveObjectToSave(saveObject);
-		System.out.println(save); //TODO remove
+		Save save = SaveDataHelper.convertIpSaveObjectToSave(saveObject,
+				em.find(User.class, saveObject.getUserId()),
+				em.find(Address.class, saveObject.getIpId()));
 		em.persist(save);
 		return "Saved";
 		

@@ -29,7 +29,19 @@
 		<h2>Location:</h2>
 		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
 		<h3>Lat: {{ipResponseData.latitude}} to {{ipResponseData.longitude}}</h3>
-
+			<form name="ipSaveForm" ng-submit="saveIp()">
+			
+				Public Comment (Optional):<br>
+				<textarea rows="5" cols="50" ng-maxlength="10000" name="publicComment" ng-model="ipSaveData.publicComment"></textarea>
+				
+				Private Comment (Optional):<br>
+				<textarea rows="5" cols="50" ng-maxlength="10000"  name="privateComment" ng-model="ipSaveData.privateComment"></textarea>
+			
+				<button type="submit" ng-disabled="ipSaveForm.$invalid">Save!</button>
+				<span ng-show="ipSaveForm.$invalid">Please keep comment under 10000 characters.</span>
+			</form>
+		
+		<div>
 	</div>
 	
 	<!-- test rest call -->
@@ -59,13 +71,16 @@
 		//request her/*  */e TODO
 		$scope.ipSearchData = {};
 		$scope.ipResponseData = {};
+		$scope.ipSaveData = {};
+		$scope.saveMessage = "";
+		
 		$scope.searchCompleteFlag = false;
 		
 		$scope.ipSearchData.accessToken="${accessToken}"
 		
 		//$scope.ipSearchData.accessToken = 'testjlskjfdlsdkfj';
 		$scope.getIpInfo = function(){
-			console.log("IP: " + $scope.ipSearchData);
+			console.log("IP: " + $scope.ipSearchData); //TODO remove
 			
 			$http({
 				method:"POST",
@@ -83,6 +98,28 @@
 			});//end http
 			
 		};//end get info
+		
+		$scope.saveIp = function(){
+			console.log("save: " + $scope.ipSaveData)
+			ipSaveData.userId = ${user.id};
+			ipSaveData.ipId = ipResponseData.id;
+			ipSaveData.acccessToken = ${accessToken};
+			
+			$http({
+				method:"POST",
+				url:"rest/saveIp",
+				data:$scope.ipSearchData,
+				params : {"content-type":"application/json","Accept":"application/json"}
+			}).then(function success(response){
+				console.log("SUCCESS POST :)")
+				console.log(response.data);
+				//save message TODO 
+			},function error(response){
+				console.log("NO SUCCESS POST :()")
+				//save message TODO 
+				
+			});
+		};//end saveIp()
 		
 		
 	});
