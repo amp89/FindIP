@@ -29,20 +29,20 @@
 		<h2>Location:</h2>
 		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
 		<h3>Lat: {{ipResponseData.latitude}} to {{ipResponseData.longitude}}</h3>
+		
 			<form name="ipSaveForm" ng-submit="saveIp()">
 			
 				Public Comment (Optional):<br>
-				<textarea rows="5" cols="50" ng-maxlength="10000" name="publicComment" ng-model="ipSaveData.publicComment"></textarea>
+				<textarea rows="5" cols="50" ng-maxlength="10000" name="publicComment" ng-model="ipSaveData.publicComment"></textarea><br>
 				
 				Private Comment (Optional):<br>
-				<textarea rows="5" cols="50" ng-maxlength="10000"  name="privateComment" ng-model="ipSaveData.privateComment"></textarea>
+				<textarea rows="5" cols="50" ng-maxlength="10000"  name="privateComment" ng-model="ipSaveData.privateComment"></textarea><br>
 			
 				<button type="submit" ng-disabled="ipSaveForm.$invalid">Save!</button>
 				<span ng-show="ipSaveForm.$invalid">Please keep comment under 10000 characters.</span>
 			</form>
 		
 		<div>
-	</div>
 	
 	<!-- test rest call -->
 	<script>
@@ -101,21 +101,21 @@
 		
 		$scope.saveIp = function(){
 			console.log("save: " + $scope.ipSaveData)
-			ipSaveData.userId = ${user.id};
-			ipSaveData.ipId = ipResponseData.id;
-			ipSaveData.acccessToken = ${accessToken};
+			$scope.ipSaveData.userId = "${user.id}";
+			$scope.ipSaveData.ipId = $scope.ipResponseData.id;
+			$scope.ipSaveData.accessToken = "${accessToken}";
 			
 			$http({
 				method:"POST",
 				url:"rest/saveIp",
-				data:$scope.ipSearchData,
+				data:$scope.ipSaveData,
 				params : {"content-type":"application/json","Accept":"application/json"}
 			}).then(function success(response){
 				console.log("SUCCESS POST :)")
 				console.log(response.data);
 				//save message TODO 
 			},function error(response){
-				console.log("NO SUCCESS POST :()")
+				console.log("NO SUCCESS POST :(")
 				//save message TODO 
 				
 			});

@@ -103,7 +103,7 @@
 			console.log("save: " + $scope.ipSaveData)
 			$scope.ipSaveData.userId = "${user.id}";
 			$scope.ipSaveData.ipId = $scope.ipResponseData.id;
-			$scope.ipSaveData.accessToken = "${accessToken}";
+			$scope.ipSaveData.acccessToken = "${accessToken}";
 			
 			$http({
 				method:"POST",

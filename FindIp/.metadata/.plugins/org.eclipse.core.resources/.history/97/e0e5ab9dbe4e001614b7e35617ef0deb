@@ -72,10 +72,8 @@ public class IpRestController{
 	public RestMessageObject saveIpAddress(HttpSession session, @RequestBody IpSaveObject ipso){
 		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
 		//make sure data is valid & access token is valid
-		System.out.println("save" + ipso); //TODO remove
-		System.out.println("user: " + cu);
-		if((ipso.getPrivateComment() == null || (ipso.getPrivateComment().length() < 10000) && (ipso.getPublicComment() == null || ipso.getPublicComment().length() < 10000
-			))	&& ipso.getAccessToken().equals(cu.getAccessToken())){
+		if(ipso.getPrivateComment().length() < 10000 && ipso.getPublicComment().length() < 10000
+				&& ipso.getAccessToken().equals(cu.getAccessToken())){
 			dao.saveIpAddress(ipso, cu.getId());
 			System.out.println("saved"); //TODO remove
 			return new RestMessageObject("Item Saved!");
