@@ -23,6 +23,15 @@
 	</div>
 	<!-- end test angular -->
 	
+	<div ng-show="searchCompleteFlag">
+		<h2>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
+		<h3>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
+		<h2>Location:</h2>
+		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
+		<h3>Lat: {{ipResponseData.latitude}} to {{ipResponseData.longitude}}</h3>
+
+	</div>
+	
 	<!-- test rest call -->
 	<script>
 /* 	 old way		
@@ -49,6 +58,8 @@
 		
 		//request her/*  */e TODO
 		$scope.ipSearchData = {};
+		$scope.ipResponseData = {};
+		$scope.searchCompleteFlag = false;
 		
 		$scope.ipSearchData.accessToken="${accessToken}"
 		
@@ -62,10 +73,13 @@
 				data:$scope.ipSearchData,
 				params : {"content-type":"application/json","Accept" : "application/json"}
 			}).then(function success(response){
-				console.log("Post Ip search :)");
-				console.log(response.data);
+				console.log("Post Ip search :)"); //TODO remove
+				console.log(response.data); //TODO remove
+				$scope.searchCompleteFlag = true;
+				$scope.ipResponseData = response.data;
+				
 			}, function error(response){
-				console.log("No post search :(");
+				console.log("No post search :("); //TODO remove
 			});//end http
 			
 		};//end get info
