@@ -14,11 +14,13 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="FindIp"/>
 			<item value="FindIpJPA"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="FindIp"/>
 			<item value="FindIpJPA"/>
 		</list>
 		<list key="version">

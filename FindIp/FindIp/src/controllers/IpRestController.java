@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.CurrentUser;
 import data.IpDAO;
+import data.IpSaveObject;
 import data.IpSearchObject;
+import data.RestMessageObject;
 import data.UserLoginObject;
 import entities.Address;
 
@@ -53,14 +55,30 @@ public class IpRestController{
 	private Address getIpData(HttpSession session, @RequestBody IpSearchObject ipso){
 		System.out.println("Search params: " + ipso); //TODO debug printout only
 		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
-		System.out.println("USER TOKEN: " + cu.getAccessToken());
-		System.out.println("REST TOKEN: " + ipso.getAccessToken());
+//		System.out.println("USER TOKEN: " + cu.getAccessToken()); TODO remove
+//		System.out.println("REST TOKEN: " + ipso.getAccessToken()); TODO remove
 		if(cu.getAccessToken().equals(ipso.getAccessToken())){
 			Address ipAddress = dao.getIpStats(ipso);
 			return ipAddress;
-		}else{
-			System.out.println("INVALID"); //TODO invalid
+		}
+		//This shouldn't ever happen because of angular validation on the front end
+		else{
+			System.out.println("INVALID"); //TODO remove
 			return null;
+		}
+	}// end getIpData();
+	
+	@RequestMapping(value="/saveIp", method=RequestMethod.POST, produces = "application/json")
+	public RestMessageObject saveIpAddress(HttpSession session, @RequestBody IpSaveObject ipso){
+		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
+		//make sure data is valid & access token is valid
+		if(ipso.getPrivateComment().length() < 10000 && ipso.getPublicComment().length() < 10000
+				&& ipso.getAccessToken().equals(cu.getAccessToken())){
+			dao.saveIpAddress(ipso, cu.getId());
+			System.out.println("saved"); //TODO remove
+			return new RestMessageObject("Item Saved!");
+		}else{
+			return new RestMessageObject("Item not Saved, Try again later.");
 		}
 	}
 	

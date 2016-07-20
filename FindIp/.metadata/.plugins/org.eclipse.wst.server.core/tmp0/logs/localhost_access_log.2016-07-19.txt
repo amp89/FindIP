@@ -519,3 +519,6 @@
 0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:19:48 -0600] "GET /FindIp/search.do HTTP/1.1" 200 2509
 0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:19:48 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
 0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:19:53 -0600] "POST /FindIp/rest/getIpData?Accept=application%2Fjson&content-type=application%2Fjson HTTP/1.1" 200 212
+0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:21:55 -0600] "GET /FindIp/search.do HTTP/1.1" 200 2509
+0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:21:55 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
+0:0:0:0:0:0:0:1 - - [19/Jul/2016:03:22:03 -0600] "POST /FindIp/rest/getIpData?Accept=application%2Fjson&content-type=application%2Fjson HTTP/1.1" 200 206

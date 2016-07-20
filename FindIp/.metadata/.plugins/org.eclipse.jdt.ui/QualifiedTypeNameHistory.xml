@@ -4,12 +4,20 @@
 <fullyQualifiedTypeName name="javax.persistence.Table"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.SelectBeforeUpdate"/>
 <fullyQualifiedTypeName name="dataLoading.LoadIpCSVData"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="entities.User"/>
 <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
 <fullyQualifiedTypeName name="entities.Address"/>
-<fullyQualifiedTypeName name="entities.UserType"/>
 <fullyQualifiedTypeName name="entities.Save"/>
+<fullyQualifiedTypeName name="entities.UserType"/>
+<fullyQualifiedTypeName name="entities.User"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="data.CurrentUser"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+<fullyQualifiedTypeName name="dataHelpers.UserDataHelper"/>
+<fullyQualifiedTypeName name="dataHelpers.AddressDataHelper"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

@@ -20,7 +20,7 @@ public interface IpDAO {
 	public String confirmUserAccount(User user); 
 	
 	// create save
-	public String saveIpAddress(Save save, Integer userId);
+	public String saveIpAddress(IpSaveObject save, Integer userId);
 
 	// get user by:
 	// id

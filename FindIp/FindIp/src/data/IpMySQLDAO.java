@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import dataHelpers.AddressDataHelper;
+import dataHelpers.SaveDataHelper;
 import dataHelpers.UserDataHelper;
 import entities.Address;
 import entities.Save;
@@ -63,8 +64,13 @@ public class IpMySQLDAO implements IpDAO {
 	}
 	
 	// create save
-	public String saveIpAddress(Save save, Integer userId) {
-		return null;
+	public String saveIpAddress(IpSaveObject saveObject, Integer userId) {
+		Save save = SaveDataHelper.convertIpSaveObjectToSave(saveObject);
+		System.out.println(save); //TODO remove
+		em.persist(save);
+		return "Saved";
+		
+
 	}
 
 	// get user by:
@@ -118,12 +124,10 @@ public class IpMySQLDAO implements IpDAO {
 	public Address getIpStats(IpSearchObject ipso) {
 		System.out.println("IN DAO: IPSO: " + ipso.getIpAddress());//TODO DEBUG
 		Long ipNumber = AddressDataHelper.convertIpAddressToNumber(ipso.getIpAddress());
-		//return a list in case of duplicates, and choose the first one
+		//return a list (in case of duplicate entries), and return the first item of the list
 		List<Address> addressResultList = em.createQuery("Select a from Address a WHERE"
 				+ " a.startIp <= :ipNumber AND a.endIp >= :ipNumber",Address.class)
 				.setParameter("ipNumber",ipNumber).getResultList();
-//		System.out.println(address);
-		
 		return addressResultList.get(1);
 	}
 
