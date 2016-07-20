@@ -14,9 +14,10 @@
 	
 	<div ng-show="searchCompleteFlag">
 		<h2>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
+		<h2>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
 		<h2>Location:</h2>
 		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
-		<h3>Lat: {{ipResponseData.latitude}} Lon: {{ipResponseData.longitude}}</h3>
+		<h3>Lat: {{ipResponseData.latitude}} to {{ipResponseData.longitude}}</h3>
 		
 			<form name="ipSaveForm" ng-submit="saveIp()">
 			
