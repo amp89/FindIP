@@ -36,15 +36,16 @@ public class IpLoginController{
 	
 	@RequestMapping(path = "index", method=RequestMethod.GET)
 	private ModelAndView renderIndex(HttpSession session){
+		mv.addObject("testMSG","test message");
 		if(session.getAttribute("currentUserLogin") == null){
 			ModelAndView mv = new ModelAndView();
-			mv.addObject("testMSG","test message");
 			mv.addObject("user",new UserLoginObject());
 			mv.setViewName("index");
 			return mv;
 			
 		}else{
 			return new ModelAndView("redirect:/search.do");
+			
 		}
 	}
 	

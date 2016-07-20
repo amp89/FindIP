@@ -35,25 +35,12 @@ public class IpLoginController{
 	private IpDAO dao;
 	
 	@RequestMapping(path = "index", method=RequestMethod.GET)
-	private ModelAndView renderIndex(HttpSession session){
-		if(session.getAttribute("currentUserLogin") == null){
-			ModelAndView mv = new ModelAndView();
-			mv.addObject("testMSG","test message");
-			mv.addObject("user",new UserLoginObject());
-			mv.setViewName("index");
-			return mv;
-			
-		}else{
-			return new ModelAndView("redirect:/search.do");
-		}
-	}
-	
-	@RequestMapping(path = "logout", method=RequestMethod.GET)
-	private ModelAndView logout(HttpSession session){
-		session.setAttribute("currentUserLogin",null);
-		System.out.println("logged out"); //TODO remove
-		System.out.println("Should be null: " + session.getAttribute("currentUserLogin")); //TODO remove
-		return new ModelAndView("redirect:/index.do");
+	private ModelAndView renderIndex(){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("testMSG","test message");
+		mv.addObject("user",new UserLoginObject());
+		mv.setViewName("index");
+		return mv;
 	}
 
 	//TODO test method

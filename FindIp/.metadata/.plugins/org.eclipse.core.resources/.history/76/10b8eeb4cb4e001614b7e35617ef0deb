@@ -45,6 +45,7 @@ public class IpLoginController{
 			
 		}else{
 			return new ModelAndView("redirect:/search.do");
+			
 		}
 	}
 	
