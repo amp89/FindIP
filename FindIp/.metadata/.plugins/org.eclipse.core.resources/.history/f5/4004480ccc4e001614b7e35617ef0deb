@@ -38,11 +38,13 @@ public class IpNavigationController {
 		ModelAndView mv = new ModelAndView();
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
 		if(cu.getUserType().getAccessLevel() >= 2){
-			mv.setViewName("dashboard"); //TODO why dashboard?
+			mv.setViewName("dashboard");
 			mv.addObject("message","You are not an admin user, you cannot manage other users.");
+			return mv;
 		}else{
 			mv.addObject("user",cu);
 			mv.setViewName("manageUsers");
+			
 		}
 		return mv;
 	}

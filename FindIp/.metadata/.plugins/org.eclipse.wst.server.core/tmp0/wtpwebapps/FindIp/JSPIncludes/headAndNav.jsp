@@ -14,7 +14,7 @@
 <!-- nav here -->
 
 <a href="search.do">Search</a>
-<a href="userDashboard.do">Search</a>
-<a href="manageUsers.do">Search</a>
+<a href="userDashboard.do">Dashboard</a>
+<a href="manageUsers.do">Manage Users</a> <!-- might take this out and put on dashboard - admin only -->
 <a href="index.do">Home</a>
 <a href="logout.do">Logout</a>
