@@ -18,7 +18,11 @@ public class IpNavigationController {
 		if(cu == null){
 			return new ModelAndView("redirect:/index.do");
 		}else{			
-			return getUserAndAccessTokenMV(cu,"search");
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("user",cu);
+			mv.addObject("accessToken",cu.getAccessToken());
+			mv.setViewName("search");
+			return mv;
 		}
 	}
 	
@@ -29,7 +33,11 @@ public class IpNavigationController {
 		if(cu == null){
 			return new ModelAndView("redirect:/index.do");
 		}else{			
-			return getUserAndAccessTokenMV(cu, "dashboard");
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("user",cu);
+			mv.addObject("accessToken",cu.getAccessToken());
+			mv.setViewName("dashboard");
+			return mv;
 		}
 	}
 	
@@ -42,8 +50,10 @@ public class IpNavigationController {
 			return new ModelAndView("redirect:/index.do");
 		}else{
 			if(cu.getUserType().getAccessLevel() >= 2){
-				return getUserAndAccessTokenMV(cu,"manageUsers");
+				ModelAndView mv = getUserAndAccessTokenMV(cu);
+				mv.setViewName(viewName);
 			}else{
+				ModelAndView mv = new ModelAndView();
 				return new ModelAndView("redirect:/userDashboard.do");				
 			}
 		}
