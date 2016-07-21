@@ -107,6 +107,8 @@
 			}).then(function success(response){
 				console.log("SUCCESS POST :)")
 				console.log(response.data);
+				$scope.ipSaveData.publicComment = "";
+				$scope.ipSaveData.privateComment = "";
 				//save message TODO 
 			},function error(response){
 				console.log("NO SUCCESS POST :(")

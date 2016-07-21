@@ -70,6 +70,8 @@
 					params : {"content-type":"application/json","Accept" : "application/json"}
 				}).then(function success(response){
 					console.log("DELETEDDDDDD :D "); //TODO remove
+					//will this make refresh uncessesary???? TODO remove
+					$scope.getData();
 
 					
 				}, function error(response){
