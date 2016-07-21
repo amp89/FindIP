@@ -11,7 +11,8 @@ public class UserDataHelper {
 	}
 	
 	public static CurrentUser addAuthToken(CurrentUser cu){
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*()-_=+|}{[]1234567890";
+//		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*()-_=+|}{[]1234567890";
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 		StringBuilder confKey = new StringBuilder();
 		for (int i = 0; i < 180; i++) {
 			int randomCharKey = (int) (Math.random() * characters.length());

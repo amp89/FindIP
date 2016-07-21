@@ -17,6 +17,7 @@ public class UserRestController {
 	@RequestMapping(value = "/getLoggedInUserData/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private CurrentUser getLoggedInUserData(HttpSession session, @PathVariable String accessToken) {
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("A TOKEN : " + accessToken);
 		System.out.println("Rest Controller.  currentUserLogin: " + cu); //TODO remove
 		if(cu != null && cu.getAccessToken().equals(accessToken)){
 			return cu;
