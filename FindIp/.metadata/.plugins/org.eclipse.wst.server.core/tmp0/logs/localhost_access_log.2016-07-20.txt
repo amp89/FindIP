@@ -272,3 +272,5 @@
 0:0:0:0:0:0:0:1 - - [20/Jul/2016:22:41:53 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
 0:0:0:0:0:0:0:1 - - [20/Jul/2016:22:41:54 -0600] "GET /FindIp/manageUsers.do HTTP/1.1" 500 3748
 0:0:0:0:0:0:0:1 - - [20/Jul/2016:22:41:56 -0600] "GET /FindIp/angular/angular.min.js.map HTTP/1.1" 404 1060
+127.0.0.1 - - [20/Jul/2016:22:48:26 -0600] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [20/Jul/2016:22:48:32 -0600] "GET /FindIp/ HTTP/1.1" 200 1568
