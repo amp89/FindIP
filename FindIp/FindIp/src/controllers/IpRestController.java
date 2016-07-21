@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.CurrentUser;
+import data.DeleteSavePostObject;
 import data.IpDAO;
 import data.IpSaveObject;
 import data.IpSearchObject;
@@ -74,6 +75,21 @@ public class IpRestController {
 		}
 		return new RestMessageObject("Did not work.  Try again later");
 		
-	}
+	}//saveIpAddress
+	
+	@RequestMapping(value = "/deleteSave", method = RequestMethod.POST, produces = "application/json")
+	public RestMessageObject deleteSave(HttpSession session, @RequestBody DeleteSavePostObject dspo){
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		// make sure data is valid & access token is valid
+		System.out.println("save" + dspo); // TODO remove
+		System.out.println("user: " + cu);
+		if (cu != null && dspo.getAccessToken().equals(cu.getAccessToken()) && (dspo.getUserId() == cu.getId())) {
+			dao.deleteSave(dspo);
+		}
+		return new RestMessageObject("Did not work.  Try again later");
+		
+	}//saveIpAddress
+		
+}//end class
 
-}
+

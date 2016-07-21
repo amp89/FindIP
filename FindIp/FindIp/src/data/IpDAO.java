@@ -1,7 +1,8 @@
 package data;
 
+import java.util.List;
+
 import entities.Address;
-import entities.Save;
 import entities.User;
 
 public interface IpDAO {
@@ -21,6 +22,8 @@ public interface IpDAO {
 	
 	// create save
 	public String saveIpAddress(IpSaveObject save, Integer userId);
+	
+	public String deleteSave(DeleteSavePostObject dspo);
 
 	// get user by:
 	// id
@@ -59,6 +62,6 @@ public interface IpDAO {
 	public Address getIpStats(IpSearchObject ipso);
 	
 	//get public comments for an address
-	public String getIpPublicComments(Integer addressId);
+	public List<String> getIpPublicComments(Integer addressId);
 
 }

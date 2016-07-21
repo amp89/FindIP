@@ -77,6 +77,13 @@ public class IpMySQLDAO implements IpDAO {
 
 	}
 
+	@Override
+	public String deleteSave(DeleteSavePostObject dspo){
+		Save save = em.find(Save.class,dspo.getSaveId());
+		em.remove(save);
+		return "Removed";
+	}
+	
 	// get user by:
 	// id
 	public User getUserById() {
@@ -141,7 +148,8 @@ public class IpMySQLDAO implements IpDAO {
 	}
 
 	// get public comments for an address
-	public String getIpPublicComments(Integer addressId) {
+	public List<String> getIpPublicComments(Integer addressId) {
+		
 		return null;  // i think these are included with the getIpStats method TODO remove
 	}
 
