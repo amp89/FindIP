@@ -59,7 +59,7 @@ public class IpRestController {
 	}// end getIpData();
 
 	@RequestMapping(value = "/saveIp", method = RequestMethod.POST, produces = "application/json")
-	public RestMessageObject saveIpAddress(HttpSession session, @RequestBody IpSaveObject ipso) {
+	private RestMessageObject saveIpAddress(HttpSession session, @RequestBody IpSaveObject ipso) {
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
 		// make sure data is valid & access token is valid
 		System.out.println("save" + ipso); // TODO remove
@@ -70,6 +70,9 @@ public class IpRestController {
 					&& ipso.getAccessToken().equals(cu.getAccessToken())) {
 				dao.saveIpAddress(ipso, cu.getId());
 				System.out.println("saved"); // TODO remove
+				//update user list by logging out and back in.
+				refreshUser(session);
+				
 				return new RestMessageObject("Item Saved!");
 			}
 		}
@@ -78,17 +81,28 @@ public class IpRestController {
 	}//saveIpAddress
 	
 	@RequestMapping(value = "/deleteSave", method = RequestMethod.POST, produces = "application/json")
-	public RestMessageObject deleteSave(HttpSession session, @RequestBody DeleteSavePostObject dspo){
+	private RestMessageObject deleteSave(HttpSession session, @RequestBody DeleteSavePostObject dspo){
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
 		// make sure data is valid & access token is valid
 		System.out.println("save" + dspo); // TODO remove
 		System.out.println("user: " + cu);
 		if (cu != null && dspo.getAccessToken().equals(cu.getAccessToken()) && (dspo.getUserId() == cu.getId())) {
 			dao.deleteSave(dspo);
+			//update user list
+			refreshUser(session);
 		}
 		return new RestMessageObject("Did not work.  Try again later");
 		
 	}//saveIpAddress
+	
+	private void refreshUser(HttpSession session){
+		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");
+		String accessToken = cu.getAccessToken();
+		session.setAttribute("currentUserLogin",null);
+		cu = dao.getUserById(cu.getId());
+		cu.setAccessToken(accessToken);
+		session.setAttribute("currentUserLogin",cu);
+	}
 		
 }//end class
 

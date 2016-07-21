@@ -73,6 +73,7 @@ public class IpMySQLDAO implements IpDAO {
 				em.find(Address.class, saveObject.getIpId()));
 		em.persist(save);
 		return "Saved";
+		//TODO stop it from saving more than once, that doens't make sense.
 		
 
 	}
@@ -86,8 +87,9 @@ public class IpMySQLDAO implements IpDAO {
 	
 	// get user by:
 	// id
-	public User getUserById() {
-		return null;
+	@Override
+	public CurrentUser getUserById(Integer id) {
+		return UserDataHelper.convertUserToCurrentUser(em.find(User.class,id));
 	}
 
 	// email
