@@ -132,7 +132,12 @@ public class IpMySQLDAO implements IpDAO {
 		List<Address> addressResultList = em.createQuery("Select a from Address a WHERE"
 				+ " a.startIp <= :ipNumber AND a.endIp >= :ipNumber",Address.class)
 				.setParameter("ipNumber",ipNumber).getResultList();
-		return addressResultList.get(1);
+		if(addressResultList.size() < 1){
+			return null;
+		}else{
+			return addressResultList.get(1);
+			
+		}
 	}
 
 	// get public comments for an address

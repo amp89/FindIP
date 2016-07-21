@@ -14,6 +14,9 @@
 	<!-- end test angular -->
 	
 	<div ng-show="searchCompleteFlag">
+		<div ng-hide="ipResponseData">Not Found.</div>
+		<div ng-show="ipResponseData">
+		
 		<h2>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
 		<h2>Location:</h2>
 		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
@@ -31,6 +34,7 @@
 				<span ng-show="ipSaveForm.$invalid">Please keep comment under 10000 characters.</span>
 			</form>
 		
+		</div>
 		</div>
 	</div> <!-- //app -->
 	<!-- test rest call -->

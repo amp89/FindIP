@@ -13,6 +13,7 @@
 
 <!-- nav here -->
 ${message}
+DEBUG: ${user}
 <br>
 <br>
 
