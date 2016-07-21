@@ -19,7 +19,7 @@ ${message}
 
 
 <a href="index.do">Home</a> 
-<c:if test="${!empty(user) && user.userType.accessLevel > 0}">
+<c:if test="${!empty(user) || user.userType.accessLevel > 0}">
 <a href="search.do">Search</a>
 <c:if test="${user.userType.accessLevel >= 2}">
 <a href="manageUsers.do">Manage Users</a> <!-- might take this out and put on dashboard - admin only -->

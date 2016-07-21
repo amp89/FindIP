@@ -40,7 +40,6 @@ public class IpLoginController{
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("message","Sign In, or Sign Up!");
 			mv.addObject("userLogin",new UserLoginObject());
-			mv.addObject("user",new User());
 			mv.setViewName("index");
 			return mv;
 			

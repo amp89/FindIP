@@ -1,5 +1,6 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
-	
+<c:if test="${!empty(user) && user.userType.accessLevel > 0}">
+
 	<div ng-app="searchApp" ng-controller="searchForm">
 	<div ng-submit="getIpInfo()">
 		Enter a valid ip address, <!-- <br>&nbsp;&nbsp;&nbsp;ex: x.x.x.x, xxx.xx.xx.xxx, xxx.xxx.xxx.xxx, and so on. -->
@@ -122,6 +123,6 @@
 	
 
 		
-	
+	</c:if>
 </body>
 </html>
