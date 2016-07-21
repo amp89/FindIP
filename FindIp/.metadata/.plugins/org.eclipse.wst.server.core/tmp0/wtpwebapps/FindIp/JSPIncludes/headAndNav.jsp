@@ -12,9 +12,18 @@
 <body>
 
 <!-- nav here -->
+${message}
+<br>
+<br>
 
+
+
+<a href="index.do">Home</a> 
+<c:if test="${!empty(user)}">
 <a href="search.do">Search</a>
-<a href="userDashboard.do">Dashboard</a>
+<c:if test="${user.userType.accessLevel >= 2}">
 <a href="manageUsers.do">Manage Users</a> <!-- might take this out and put on dashboard - admin only -->
-<a href="index.do">Home</a>
+</c:if>
+<a href="userDashboard.do">Dashboard</a>
 <a href="logout.do">Logout</a>
+</c:if>

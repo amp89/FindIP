@@ -23,7 +23,16 @@ public class IpRestController {
 	@Autowired
 	private IpDAO dao;
 
+	// TODO this is a test moethod, however it if is usefull i will leave it
+	@RequestMapping(value = "/getLoggedInUserData", method = RequestMethod.GET, produces = "application/json")
+	private CurrentUser getLoggedInUserData(HttpSession session) {
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("Rest Controller.  currentUserLogin: " + cu);
 
+		return cu;
+		// return "{\"TEST\":\"DATAAAAAA\"}";
+
+	}// getLoggedInUserData
 
 	// TODO test method, remove.
 	@RequestMapping(value = "/testRestPath", method = RequestMethod.GET, produces = "application/json")

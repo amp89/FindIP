@@ -1,10 +1,11 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
+${message}
 <br>
 USER (DEBUG): ${user}
 <br>
 Login
 
-<form:form action="login.do" modelAttribute="userLogin">
+<form:form action="login.do" modelAttribute="user">
 	<table>
 		<tr>
 				<td>Email:</td>
@@ -26,7 +27,7 @@ Login
 Signup
 
 
-<form:form action="signup.do" modelAttribute="userLogin">
+<form:form action="signup.do" modelAttribute="user">
 	<table>
 		<tr>
 				<td>Email:</td>

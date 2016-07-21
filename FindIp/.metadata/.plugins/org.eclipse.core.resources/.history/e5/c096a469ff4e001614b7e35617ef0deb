@@ -38,7 +38,7 @@ public class IpLoginController{
 	private ModelAndView renderIndex(HttpSession session){
 		if(session.getAttribute("currentUserLogin") == null){
 			ModelAndView mv = new ModelAndView();
-			mv.addObject("message","Sign In, or Sign Up!");
+			mv.addObject("testMSG","test message");
 			mv.addObject("userLogin",new UserLoginObject());
 			mv.setViewName("index");
 			return mv;
