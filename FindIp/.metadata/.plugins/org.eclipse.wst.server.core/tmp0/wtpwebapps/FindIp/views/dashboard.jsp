@@ -18,10 +18,12 @@
 			/* $scope.getUserData = {};
 			$scope.getUserData.accessToken = "${accessToken}";
 			 */
+			var getUrl = "rest/getLoggedInUserData/"+"${accessToken}";
+			console.log(getUrl);
 			$scope.userData = {};
 			$http({
 				method:"GET",
-				url:"rest/getLoggedInUserData/"+"${accessToken}",
+				url:getUrl,
 				params : {"content-type":"text/plain","Accept" : "application/json"}
 			}).then(function success(response){
 				$scope.userData = response.data;
