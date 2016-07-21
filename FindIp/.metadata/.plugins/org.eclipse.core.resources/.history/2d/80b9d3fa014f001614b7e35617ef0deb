@@ -60,17 +60,16 @@ public class IpLoginController{
 	@RequestMapping(path = "login", method = RequestMethod.POST)
 	private ModelAndView login(@ModelAttribute("user") @Valid UserLoginObject user, Errors errors, HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",new User());
 		
 		if(errors.getErrorCount() == 0){
 			System.out.println("GOOD INPUT: " + user); //TODO remove
 			CurrentUser cu = dao.authenticateUser(user);
 			if(cu == null){
 				mv.addObject("message","Check your login credentials and try again.");
-				mv.addObject("userLogin",user);
+				mv.addObject("user",new User());
 			}else if(cu.getAccountLocked()){
 				mv.addObject("message","Account Has Been Locked.  Reset your password, and try again.");
-				mv.addObject("userLogin",user);
+				mv.addObject("user",new User());
 			}
 			//login success
 			else if(cu != null && !cu.getAccountLocked()){

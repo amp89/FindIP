@@ -23,13 +23,4 @@ public class UserRestController {
 
 	}// getLoggedInUserData
 	
-	//admin user add
-	
-	//search for users
-	
-	//delete user
-	
-	//admin delete user
-	
-	
 }

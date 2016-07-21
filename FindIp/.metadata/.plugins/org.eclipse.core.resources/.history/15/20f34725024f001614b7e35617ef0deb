@@ -60,7 +60,6 @@ public class IpLoginController{
 	@RequestMapping(path = "login", method = RequestMethod.POST)
 	private ModelAndView login(@ModelAttribute("user") @Valid UserLoginObject user, Errors errors, HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("user",new User());
 		
 		if(errors.getErrorCount() == 0){
 			System.out.println("GOOD INPUT: " + user); //TODO remove

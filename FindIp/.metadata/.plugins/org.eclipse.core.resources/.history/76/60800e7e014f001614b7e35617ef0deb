@@ -137,7 +137,7 @@ public class IpMySQLDAO implements IpDAO {
 
 	// get public comments for an address
 	public String getIpPublicComments(Integer addressId) {
-		return null;  // i think these are included with the getIpStats method TODO remove
+		return null;
 	}
 
 }
