@@ -8,7 +8,7 @@
 			<input name="ipAddress" type="text" ng-pattern="regex" ng-minlength="7" ng-maxlength="15" ng-model=ipSearchData.ipAddress required/>
 			<button type="submit" ng-disabled="ipSearchForm.$invalid">SEARCH</button>
 		</form>
-		<span ng-hide="ipSearchForm.$invalid">Ip To Lookup: {{ipSearchData.ipAddress}}</span>
+		<span ng-hide="ipSearchForm.$invalid">Ip To Lookup: {{ipSearchData.ipAddress}}.  Press SEARCH to find data.</span>
 		<span ng-show="ipSearchForm.$invalid">Please use this format: 255.255.255.255</span>
 	</div>
 	<!-- end test angular -->
@@ -19,8 +19,9 @@
 		
 		<h2>IP: {{ipResponseData.startIp}} to {{ipResponseData.endIp}}</h2>
 		<h2>Location:</h2>
-		<h3>{{ipResponseData.region}}, {{ipResponseData.city}}, {{ipResponseData.countryName}}</h3>
+		<h3>{{ipResponseData.city}}, {{ipResponseData.region}}, {{ipResponseData.countryName}}</h3>
 		<h3>Lat: {{ipResponseData.latitude}} Lon: {{ipResponseData.longitude}}</h3>
+		<!-- ng repeat public comments -->
 		
 			<form name="ipSaveForm" ng-submit="saveIp()">
 			

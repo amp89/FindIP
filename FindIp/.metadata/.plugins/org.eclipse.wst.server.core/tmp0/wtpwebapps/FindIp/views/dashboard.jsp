@@ -6,7 +6,25 @@
 	User Dashboard
 	
 	<div ng-app="showUserDataApp" ng-controller="userController">
-	
+	Your Saves:
+	<ul>
+		<li ng-repeat="s in userData.saves">
+			<ul>
+				<li>{{s.address.startIp}} to {{s.address.endIp}}</li>
+				<li>{{s.address.city}}, {{s.address.region}}, {{s.address.countryName}} </li>
+				<li>Lat: {{s.address.latitude}} Lon: {{s.address.longitude}}</li>
+				<li>Comments
+					<ul>
+						<li ng-show="s.publicComment">{{s.publicComment}}</li>
+						<!-- ??make this get entire list?? -->
+						<li ng-show="s.privateComment">{{s.privateComment}}</li>
+					</ul>
+				</li>
+s
+			</ul>
+		
+		</li>
+	</ul>
 	
 	
 	

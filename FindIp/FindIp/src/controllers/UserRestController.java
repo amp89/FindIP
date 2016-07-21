@@ -23,7 +23,6 @@ public class UserRestController {
 			return cu;
 		}else{
 			return null;
-			
 		}
 
 		// return "{\"TEST\":\"DATAAAAAA\"}";
