@@ -93,7 +93,10 @@ public class IpMySQLDAO implements IpDAO {
 	}
 
 	// email
-	public User getuserByEmail() {
+	@Override
+	public List<User> getUsersByEmail(String email) {
+		List<User> user
+		
 		return null;
 	}
 

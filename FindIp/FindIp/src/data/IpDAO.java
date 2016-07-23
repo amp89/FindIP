@@ -30,7 +30,7 @@ public interface IpDAO {
 	public CurrentUser getUserById(Integer id);
 
 	// email
-	public User getuserByEmail();
+	public List<User> getUsersByEmail(String email);
 
 	// failed login's
 	public User getUserByFailedLogginAttempts();
