@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import controllerHelper.UserControllerHelper;
 import data.CurrentUser;
 import data.IpDAO;
+import data.RestMessageObject;
 import entities.User;
 
 @RestController
@@ -43,7 +44,7 @@ public class UserRestController {
 	
 	//search for users
 	
-	//TODO not tested:
+	//TODO combine two search method logic into a non-request mapped method for simplicity:
 	@RequestMapping(value = "/searchUsers/{emailSearched}/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private List<User> searchUsers(@PathVariable String emailSearched, @PathVariable String accessToken, HttpSession session){
 		System.out.println("search: " + emailSearched); //TODO remove
@@ -60,9 +61,7 @@ public class UserRestController {
 			return null;
 		}
 
-	}
-	
-	
+	}	
 	@RequestMapping(value = "/searchUsers/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private List<User> searchUsers(@PathVariable String accessToken, HttpSession session){
 		System.out.println("a token: " + accessToken); //TODO remove
@@ -80,7 +79,13 @@ public class UserRestController {
 		
 	}
 	
-	
+	@RequestMapping(value="/editUser", method=RequestMethod.POST, produces = "application/json")
+	private RestMessageObject searchUsers(@RequestBody User userToEdit, HttpSession session){
+		System.out.println(userToEdit);
+		
+		return null; //TODO change to usefull message
+		
+	}
 	
 	
 	//delete user

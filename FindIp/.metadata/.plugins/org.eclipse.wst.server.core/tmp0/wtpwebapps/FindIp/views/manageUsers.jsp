@@ -18,7 +18,17 @@ IM A MANAGE STUFF PAGE
 	</div>
 	
 	<div ng-show="searchCompleteFlag">
-	Results
+	Results Go Here
+	
+	<ul>
+		<li ng-repeat="userFound in userList">{{userFound}}
+		<form name="userFoundForm" ng-submit="editUser">
+			<input name="email" ng-model="userData.email" />
+			
+		</form>
+		</li>
+	</ul>
+	
 	</div>
 
 
@@ -66,6 +76,15 @@ IM A MANAGE STUFF PAGE
 			}); //http
 			
 		};//searchUsers()
+		
+		$scope.editUser = function(){
+			console.log("editUser");
+		}
+		
+		$scope.deleteUser = function(){
+			console.log("deleteUser");
+			
+		}
 		
 	});
 
