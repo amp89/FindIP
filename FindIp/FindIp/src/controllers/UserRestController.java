@@ -61,6 +61,28 @@ public class UserRestController {
 		}
 
 	}
+	
+	
+	@RequestMapping(value = "/searchUsers/{accessToken}", method = RequestMethod.GET, produces = "application/json")
+	private List<User> searchUsers(@PathVariable String accessToken, HttpSession session){
+		System.out.println("a token: " + accessToken); //TODO remove
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		if(UserControllerHelper.checkIfUserValid(cu, accessToken)){
+			//lookup users
+			List<User> userList =  dao.getUsersByEmail("");
+			for (User user : userList) { //TODO remove this loop
+				System.out.println(user);
+			}
+			return userList;
+		}else{
+			return null;
+		}
+		
+	}
+	
+	
+	
+	
 	//delete user
 	
 	//admin delete user

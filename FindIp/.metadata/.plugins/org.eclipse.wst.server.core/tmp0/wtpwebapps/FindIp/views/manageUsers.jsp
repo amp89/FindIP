@@ -17,8 +17,8 @@ IM A MANAGE STUFF PAGE
 	{{searchMessage}}
 	</div>
 	
-	<div ng-show="searchCompleteFlog">
-	
+	<div ng-show="searchCompleteFlag">
+	Results
 	</div>
 
 
@@ -40,8 +40,12 @@ IM A MANAGE STUFF PAGE
 		$scope.searchForUsers = function(){
 			console.log("searching"); //TODO remove
 			console.log("email query: " + $scope.emailSearched); //TODO remove
-			
-			var getUrl = "rest/searchUsers/" + $scope.emailSearched + "/${accessToken}";
+			var getUrl = "";
+			if($scope.emailSearched.length > 0){
+				getUrl = "rest/searchUsers/" + $scope.emailSearched + "/${accessToken}";
+			}else{
+				getUrl = "rest/searchUsers/${accessToken}";
+			}
 			console.log("HTTP request: " + getUrl); //TODO remove
 			$http({
 				method:"GET",
