@@ -29,6 +29,8 @@ public interface IpDAO {
 	// id
 	public CurrentUser getUserById(Integer id);
 
+	public User getFullUserById(Integer id);
+	
 	// email
 	public List<User> getUsersByEmail(String email);
 

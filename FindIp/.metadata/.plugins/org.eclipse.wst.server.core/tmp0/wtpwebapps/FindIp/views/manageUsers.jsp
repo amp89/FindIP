@@ -22,9 +22,10 @@ IM A MANAGE STUFF PAGE
 	
 	<ul>
 		<li ng-repeat="userFound in userList">{{userFound}}
-		<form name="userFoundForm" ng-submit="editUser">
-			<input name="email" ng-model="userData.email" />
-			
+		<form name="userFoundForm" action="editUserPage.do">
+			<input type="hidden" name="userToEditId" value="userFound.id" />
+			<input type="hidden" name="accessToken" value="{$accessToekn}" />
+			<button type="submit">Edit</button>	
 		</form>
 		</li>
 	</ul>
@@ -78,8 +79,22 @@ IM A MANAGE STUFF PAGE
 		};//searchUsers()
 		
 		$scope.editUser = function(){
+			$scope.editReturnMsg = "";
+			$http({
+				method:"POST",
+				url:"rest/editUser",
+				params : {"content-type":"application/json","Accept" : "application/json"}
+				
+			}).then(function success(response){
+				console.log("Edit Success :)");// TODO remove
+				$scope.editReturnMsg = "EDIT SUBMITTED."
+			},function error(response){
+				console.log("FAILURE.");
+			});//http
+			
+			
 			console.log("editUser");
-		}
+		}//editUser
 		
 		$scope.deleteUser = function(){
 			console.log("deleteUser");

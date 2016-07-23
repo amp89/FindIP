@@ -91,6 +91,13 @@ public class IpMySQLDAO implements IpDAO {
 	public CurrentUser getUserById(Integer id) {
 		return UserDataHelper.convertUserToCurrentUser(em.find(User.class,id));
 	}
+	
+	@Override
+	public User getFullUserById(Integer id){
+		return em.find(User.class,id);
+	}
+	
+	
 
 	// email
 	@Override
