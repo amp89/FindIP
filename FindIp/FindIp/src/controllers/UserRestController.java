@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,12 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import controllerHelper.UserControllerHelper;
 import data.CurrentUser;
+import data.IpDAO;
 import entities.User;
 
 @RestController
 public class UserRestController {
 
-	
+	@Autowired
+	private IpDAO dao;
+
+
 	// TODO this is a test moethod, however it if is usefull i will leave it
 	@RequestMapping(value = "/getLoggedInUserData/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private CurrentUser getLoggedInUserData(HttpSession session, @PathVariable String accessToken) {
@@ -37,6 +42,8 @@ public class UserRestController {
 	//admin user add
 	
 	//search for users
+	
+	//TODO not tested:
 	@RequestMapping(value = "/searchUsers/{emailSearched}/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private List<User> searchUsers(@PathVariable String emailSearched, @PathVariable String accessToken, HttpSession session){
 		System.out.println("search: " + emailSearched); //TODO remove
@@ -44,14 +51,15 @@ public class UserRestController {
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
 		if(UserControllerHelper.checkIfUserValid(cu, accessToken)){
 			//lookup users
-			
+			List<User> userList =  dao.getUsersByEmail(emailSearched);
+			for (User user : userList) { //TODO remove this loop
+				System.out.println(user);
+			}
 			return userList;
 		}else{
 			return null;
 		}
-		
-		
-		
+
 	}
 	//delete user
 	

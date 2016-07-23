@@ -95,9 +95,11 @@ public class IpMySQLDAO implements IpDAO {
 	// email
 	@Override
 	public List<User> getUsersByEmail(String email) {
-		List<User> user
-		
-		return null;
+		String query = "Select u from User u WHERE u.email LIKE LOWER(:email)";
+		//TODO TODO TODO null pointer here on lookup
+		List<User> userList = em.createQuery(query,User.class).setParameter("email","%" + email.trim().toLowerCase()+"%").getResultList();
+		System.out.println(); //TODO remove
+		return userList;
 	}
 
 	// failed login's
@@ -114,6 +116,7 @@ public class IpMySQLDAO implements IpDAO {
 
 	// add by signup
 	public String signUp(User user) {
+		//check for exsisting email
 		return null;
 	}
 	// send confirmation email (make it norepy-findip@alexmpeterson.com)
