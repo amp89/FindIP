@@ -33,6 +33,7 @@
 			
 				<button type="submit" ng-disabled="ipSaveForm.$invalid">Save!</button>
 				<span ng-show="ipSaveForm.$invalid">Please keep comment under 10000 characters.</span>
+				<span ng-show="saveMessage">{{saveMessage}}</span>
 			</form>
 		
 		</div>
@@ -105,13 +106,17 @@
 				data:$scope.ipSaveData,
 				params : {"content-type":"application/json","Accept":"application/json"}
 			}).then(function success(response){
-				console.log("SUCCESS POST :)")
+				console.log("SUCCESS POST :)")  //TODO remove
 				console.log(response.data);
 				$scope.ipSaveData.publicComment = "";
 				$scope.ipSaveData.privateComment = "";
+				//$scope.saveMessage = response.data.message;
+				$scope.saveMessage = "Save successful!";
 				//save message TODO 
 			},function error(response){
-				console.log("NO SUCCESS POST :(")
+				$scope.saveMessage = "Save Successful";
+				console.log("NO SUCCESS POST :(")  //TODO remove
+				$scope.saveMessage = "Save Error!";
 				//save message TODO 
 				
 			});
