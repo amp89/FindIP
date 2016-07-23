@@ -14,7 +14,7 @@ IM A MANAGE STUFF PAGE
 
 
 	<div ng-show="searchMessage">
-	
+	{{searchMessage}}
 	</div>
 	
 	<div ng-show="searchCompleteFlog">
@@ -51,7 +51,7 @@ IM A MANAGE STUFF PAGE
 				console.log("Search success :)"); //TODO remove
 				$scope.searchCompleteFlag = true;
 				$scope.userList = response.data;
-				$scope.searchMessage = response.data.length  + "results found."
+				$scope.searchMessage = response.data.length  + " results found."
 				console.log($scope.userList);
 			
 			},function error(response){
