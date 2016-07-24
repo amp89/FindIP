@@ -15,6 +15,7 @@ import controllerHelper.UserControllerHelper;
 import data.CurrentUser;
 import data.IpDAO;
 import data.RestMessageObject;
+import data.UserEditObject;
 import entities.User;
 
 @RestController
@@ -97,7 +98,7 @@ public class UserRestController {
 	}//search users
 	
 	@RequestMapping(value="/editUser", method=RequestMethod.POST, produces = "application/json")
-	private RestMessageObject searchUsers(@RequestBody User userToEdit, HttpSession session){
+	private RestMessageObject searchUsers(@RequestBody UserEditObject userToEdit, HttpSession session){
 		System.out.println(userToEdit);
 		
 		//make sure to read access level for user type, and set accordingly.  keep this comment.

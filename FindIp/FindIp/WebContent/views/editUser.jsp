@@ -48,11 +48,16 @@
 			$scope.submitEdits = function(){
 				console.log($scope.userData);
 				//Http stuff here.
-				$scope.userData.saves = [];
+				//!!!!!!!!!!!!!!!!!!!!!!!need to put response in different object type
+				$scope.userEditData = {};
+				$scope.userEditData.id = $scope.userData.id;
+				$scope.userEditData.email = $scope.userData.password;
+				$scope.userEditData.accessLevel = $scope.userData.userType.accessLevel;
+				
 				$http({
 					method:"POST",
 					url:"rest/editUser",
-					data:$scope.userData,
+					data:$scope.userEditData,
 					params : {"content-type":"application/json","Accept" : "application/json"}
 				}).then(function success(response){
 					console.log("success :)"); //TODO remove
