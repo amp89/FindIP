@@ -40,6 +40,7 @@ public class UserRestController {
 
 	}// getLoggedInUserData
 	
+	//get's another user's information, works for admin only
 	@RequestMapping(value = "/getUserData/{returnUserId}/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private User getUserData(HttpSession session, @PathVariable int returnUserId, @PathVariable String accessToken) {
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");

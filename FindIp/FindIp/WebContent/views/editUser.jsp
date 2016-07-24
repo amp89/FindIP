@@ -10,7 +10,7 @@
 			<input type="number" min="0" max="6" name="failedLogins" ng-model="userData.failedLogins" required /><br>
 			( 5 failed logins will lock the account )<br>
 			User? <input type="radio" value="1" ng-model="userData.userType.userTypeId" /><br>
-			Admin? <input type="radio" value="2" ng-model="userData.userType.accessLevel" /><br>
+			Admin? <input type="radio" value="2" ng-model="userData.userType.userTypeId" /><br>
 			<button type="submit">SUBMIT EDIT</button>
 			
 				
@@ -28,6 +28,8 @@
 
 			var getUrl = "rest/getUserData/${userToEditId}/${accessToken}";
 			
+			$scope.userData = {}
+			
 			$http({
 				method:"GET",
 				url:getUrl,
@@ -35,6 +37,7 @@
 			}).then(function success(response){
 				console.log("WORKED :)"); //TODO remove
 				console.log(response.data); //TODO remove
+				$scope.userData = response.data;
 			},function error(response){
 				console.log("Failed :("); //TODO remove
 				
@@ -43,7 +46,7 @@
 		
 			
 			//will pass updatable fields (email, password, account type) to the controller on post
-			$scope.userData = {};
+/* 			$scope.userData = {};
 			
 
 			$scope.userData.email = "${userToEdit.email}";
@@ -51,7 +54,7 @@
 			$scope.userData.failedLogins = "${userToEdit.failedLogins}";
 			$scope.userData.password = "${userToEdit.password}";
 			$scope.userData.userTypeId = "${userToEdit.userType.id}";
-			
+			 */
 			$scope.submitEdits = function(){
 				console.log(userData);
 				//Http stuff here.
