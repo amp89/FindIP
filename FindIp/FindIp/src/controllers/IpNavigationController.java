@@ -55,16 +55,20 @@ public class IpNavigationController {
 	}// manage users
 
 	@RequestMapping(path = "editUserPage", method = RequestMethod.GET)
-	private ModelAndView getEditUserPage(HttpSession session, @RequestParam("userToEditId") int userToEditId,
+	private ModelAndView getEditUserPage(HttpSession session, @RequestParam("userToEditId") String userToEditId,
 			@RequestParam("accessToken") String accessToken) {
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("Session user: " + cu);//TODO REMOVE, for debugging
+		System.out.println("Session AT: " + cu.getAccessToken());//TODO REMOVE, for debugging
+		System.out.println("Passed at: " + accessToken);//TODO REMOVE, for debugging
+		System.out.println("Passed user id: " + userToEditId);//TODO REMOVE, for debugging
 		if (cu == null) {
 			return new ModelAndView("redirect:/index.do");
 		} else if (cu.getAccessToken().equals(accessToken) && cu.getUserType().getAccessLevel() >= 2) {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("user", cu);
 			mv.addObject("accessToken", cu.getAccessToken());
-			mv.addObject("userToEdit",dao.getFullUserById(userToEditId));
+			mv.addObject("userToEdit",dao.getFullUserById(Integer.parseInt(userToEditId)));
 			mv.setViewName("editUser");
 			return mv;
 

@@ -4534,3 +4534,19 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2016-07-23 16:11:32,024 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/main/resources
 2016-07-23 16:11:32,025 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2016-07-23 16:11:32,025 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/test/resources
+2016-07-23 19:18:34,319 [Worker-458] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:18:34,322 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/main/resources
+2016-07-23 19:18:34,323 [Worker-458] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:18:34,323 [Worker-458] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/test/resources
+2016-07-23 19:21:07,317 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:21:07,319 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/main/resources
+2016-07-23 19:21:07,319 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:21:07,320 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/test/resources
+2016-07-23 19:21:54,458 [Worker-454] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:21:54,459 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/main/resources
+2016-07-23 19:21:54,460 [Worker-454] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:21:54,461 [Worker-454] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/test/resources
+2016-07-23 19:22:19,406 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:22:19,408 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/main/resources
+2016-07-23 19:22:19,409 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-23 19:22:19,409 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/IpLookUp/FindIp/FindIp/src/test/resources
