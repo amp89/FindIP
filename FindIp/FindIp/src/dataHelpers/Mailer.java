@@ -15,13 +15,13 @@ public class Mailer {
 
 
 
-	final static String Username = "confirmation@alexmpeterson.com";
+	final static String Username = "noreplyipfind@alexmpeterson.com";
 
 	//!!!This is a fake password (real will be on server, I don't want my real
 	//password on a public github repo..
-	final static String Password = "KI7RDs2x=;R(";
+	final static String Password = "fakepassword";
 
-	final static String fromEmailAddress = "confirmation@alexmpeterson.com";
+	final static String fromEmailAddress = "noreplyipfind@alexmpeterson.com";
 
 	private String toEmailAddress;
 
@@ -31,6 +31,18 @@ public class Mailer {
 
 	
 	
+	
+	public Mailer() {
+		super();
+	}
+
+	public Mailer(String toEmailAddress, String subject, String textMessage) {
+		super();
+		this.toEmailAddress = toEmailAddress;
+		this.subject = subject;
+		this.textMessage = textMessage;
+	}
+
 	public String getToEmailAddress() {
 		return toEmailAddress;
 	}
@@ -62,8 +74,7 @@ public class Mailer {
 
 
 		props.put("mail.smtp.host", "mail.alexmpeterson.com");
-		props.put("mail.smtp.port", "587");
-
+//		props.put("mail.smtp.port", "587");  //TODO why is this here?..
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		props.put("mail.smtp.auth", "true");

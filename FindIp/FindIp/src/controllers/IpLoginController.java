@@ -74,6 +74,12 @@ public class IpLoginController{
 		}
 	} // signUp()
 	
+	//for email link:...
+	@RequestMapping(path="emailConfirm", method=RequestMethod.GET)
+	private ModelAndView emailConfirm(){
+		return new ModelAndView("redirect:/reconfirm.do");
+	}
+	
 	@RequestMapping(path="reconfirm", method=RequestMethod.GET)
 	private ModelAndView reconfirm(HttpSession session){
 		ModelAndView mv = new ModelAndView();
@@ -86,9 +92,11 @@ public class IpLoginController{
 	@RequestMapping(path="confirm", method=RequestMethod.POST)
 	private ModelAndView confrim(UserLoginObject userToConfrim, HttpSession sessoin){
 		if(dao.confirmUserAccount(userToConfrim)){
+			System.out.println("User Confirmed"); //TODO remove
 			return new ModelAndView("redirect:/index.do");
 		}else{
 			ModelAndView mv = new ModelAndView("redirect:/reconfirm.do");
+			System.out.println("User NOOOTTT Confirmed"); //TODO remove
 			return mv;
 		}
 	}//confrim

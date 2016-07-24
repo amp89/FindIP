@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import dataHelpers.AddressDataHelper;
+import dataHelpers.Mailer;
 import dataHelpers.SaveDataHelper;
 import dataHelpers.UserDataHelper;
 import entities.Address;
@@ -33,7 +34,7 @@ public class IpMySQLDAO implements IpDAO {
 		String email = user.getEmail().trim().toLowerCase();
 		String password = user.getPassword().trim().toLowerCase();
 		
-		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = :email",User.class).setParameter("email",email).getSingleResult();		
+		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = LOWER(:email)",User.class).setParameter("email",email).getSingleResult();		
 
 		//if login failed 5 times, lock account
 		if(loggedIn.getFailedLogins() < 5){
@@ -72,7 +73,7 @@ public class IpMySQLDAO implements IpDAO {
 		
 		if(userToConfirm.getConfirmation_id().equals(user.getAccessToken().trim())){
 			//TODO get the user using entity manager and set type to user
-			userToConfirm.setUserType(em.find(UserType.class,1));
+			userToConfirm.setUserType(em.find(UserType.class,2));
 			System.out.println("user set"); //TODO remove
 			return true;
 		}else{
@@ -157,11 +158,19 @@ public class IpMySQLDAO implements IpDAO {
 		}else{
 			
 			User newUser = new User(user.getEmail(),
-					"password",
+					user.getPassword(),
 					UserDataHelper.getNewConfirmationCode(),0,
 					em.createQuery("SELECT ut FROM UserType ut WHERE ut.accessLevel = :accessLevel",UserType.class).setParameter("accessLevel",0).getSingleResult());
 
-			//TODO send confirmation email
+			//TODO clean this up, make into own method.
+			Mailer mailer = new Mailer(newUser.getEmail(),"IPFind Account Confirmation", ""
+					+ "\nHere is your confirmation info."
+					+ "\nGo to <a href='localhost:8080/FindIp/emailConfirm.do'>localhost:8080/IPFind/confirm.do</a> and enter your"
+					+ "\ncredentials, with the following key:\n"
+					+ "\n"+newUser.getConfirmation_id()+"\n"
+							+ "\nThank you for using IPFind!");
+			
+			mailer.sendEMail();
 			
 			
 			em.persist(newUser);
