@@ -3,7 +3,7 @@
 
 	<div ng-app="editUserApp" ng-controller="editController">
 	
-		<form name="userEditForm" ng-submit="submitEdits()">
+		<form name="userEditForm" ng-submit="submitEdits()" ng-show="userExists">
 			User Id: ${userToEdit.id}<br>
 			Email: <input ng-pattern="emailRegex" ng-minlength="5" ng-maxlength="45" name="email" ng-model="userData.email" required/><br>
 			Password: <input type="text" ng-minlength="0" ng-maxlength="200" name="password" ng-model="userData.password" required/><br>
@@ -34,6 +34,7 @@
 			var getUrl = "rest/getUserData/${userToEditId}/${accessToken}";
 			
 			$scope.userData = {}
+			$scope.userExists = false;
 			
 			$http({
 				method:"GET",
@@ -41,6 +42,7 @@
 				params : {"content-type":"text/plain","Accept" : "application/json"}
 			}).then(function success(response){
 				console.log("WORKED :)"); //TODO remove
+				$scope.userExists = true;
 				console.log(response.data); //TODO remove
 				$scope.userData = response.data;
 			},function error(response){
@@ -90,11 +92,12 @@
 					params : {"content-type":"application/json","Accept" : "application/json"}
 				}).then(function success(response){
 					console.log("success :)"); //TODO remove
+					$scope.userExists = false;
 					//success message to page
-					$scope.editMessage = "Edit Successful.";
+					$scope.editMessage = "Delete Successful.";
 				},function error(response){
 					console.log("failure :("); //TODO remove
-					$scope.editMessage = "Edit Failed.";
+					$scope.editMessage = "Delete Failed.";
 					
 				});
 			}

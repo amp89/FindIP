@@ -54,7 +54,7 @@ public interface IpDAO {
 	// delete user:
 
 	// remove
-	public String removeUser(Integer userId);
+	public String removeUser(UserEditObject userToEdit);
 	//remove all saves
 	//remove the user
 

@@ -147,16 +147,18 @@ public class IpMySQLDAO implements IpDAO {
 		user.setUserType(newUserType);
 		
 		user.setFailedLogins(editedUser.getFailedLogins());
-		
-		
-		return null;
+				
+		return null; //TODO make meaningful message
 	}
 
 	// delete user:
 
 	// remove
-	public String removeUser(Integer userId) {
-		return null;
+	@Override
+	public String removeUser(UserEditObject editedUser) {
+		em.remove(em.find(User.class, editedUser.getId()));
+		
+		return null; //TODO meaningful message
 	}
 	// remove all saves
 	// remove the user
@@ -164,6 +166,7 @@ public class IpMySQLDAO implements IpDAO {
 	// IP SEARCH
 
 	// search
+	@Override
 	public Address getIpStats(IpSearchObject ipso) {
 		System.out.println("IN DAO: IPSO: " + ipso.getIpAddress());//TODO DEBUG
 		Long ipNumber = AddressDataHelper.convertIpAddressToNumber(ipso.getIpAddress());
