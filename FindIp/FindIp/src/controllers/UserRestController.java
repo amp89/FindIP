@@ -94,11 +94,13 @@ public class UserRestController {
 			return null;
 		}
 		
-	}
+	}//search users
 	
 	@RequestMapping(value="/editUser", method=RequestMethod.POST, produces = "application/json")
 	private RestMessageObject searchUsers(@RequestBody User userToEdit, HttpSession session){
 		System.out.println(userToEdit);
+		
+		//make sure to read access level for user type, and set accordingly.  keep this comment.
 		
 		return null; //TODO change to usefull message
 		
