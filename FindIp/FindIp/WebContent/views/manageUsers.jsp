@@ -23,7 +23,7 @@ IM A MANAGE STUFF PAGE
 	<ul>
 		<li ng-repeat="userFound in userList">{{userFound}}
 		<form name="userFoundForm" action="editUserPage.do">
-			<input type="hidden" name="userToEditId" value="userFound.id" />
+			<input type="hidden" name="userToEditId" value="{{userFound.id}}" />
 			<input type="hidden" name="accessToken" value="${accessToken}" />
 			<button type="submit">Edit</button>	
 		</form>
