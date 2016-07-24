@@ -60,7 +60,7 @@ public class IpLoginController{
 	@RequestMapping(path="signup", method=RequestMethod.POST)
 	private ModelAndView signUp(UserLoginObject user, HttpSession session){
 		System.out.println(user);
-		if(dao.signUp(user)){
+		if(dao.signUp(user) && ((CurrentUser)session.getAttribute("currentUserLogin") == null)){
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("confirm");
 			System.out.println("will add"); //TODO remove
@@ -68,10 +68,17 @@ public class IpLoginController{
 		}else{
 			ModelAndView mv = new ModelAndView("redirect:/index.do");
 			mv.addObject("message","That email is in use... choose another");
-			System.out.println("Exsits"); //TODO remove
+			System.out.println("Exsits or logged in"); //TODO remove
 			return mv;
 		}
-	}
+	} // signUp()
+	
+	@RequestMapping(path="confirm", method=RequestMethod.POST)
+	private ModelAndView confrim(UserLoginObject userToConfrim, HttpSession sessoin){
+		//used accessToken to store confirmation 
+		return null;
+	}//confrim
+	
 
 	
 	//TODO test method
