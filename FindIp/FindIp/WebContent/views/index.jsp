@@ -8,7 +8,7 @@ Login
 	<table>
 		<tr>
 				<td>Email:</td>
-				<td><form:input type="email" name="email" path="email" value="fake@fakemail.com" /></td>
+				<td><form:input type="email" name="email" path="email" value="admin@fakemail.com" /></td>
 		</tr>
 		
 		<tr>
