@@ -6,6 +6,15 @@ public class UserEditObject {
 	private String email;
 	private String password;
 	private Integer accessLevel;
+	private Integer failedLogins;
+	
+	
+	public Integer getFailedLogins() {
+		return failedLogins;
+	}
+	public void setFailedLogins(Integer failedLogins) {
+		this.failedLogins = failedLogins;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -30,12 +39,13 @@ public class UserEditObject {
 	public void setAccessLevel(Integer accessLevel) {
 		this.accessLevel = accessLevel;
 	}
-	public UserEditObject(Integer id, String email, String password, Integer accessLevel) {
+	public UserEditObject(Integer id, String email, String password, Integer accessLevel, Integer failedLogins) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.accessLevel = accessLevel;
+		this.failedLogins = failedLogins;
 	}
 	public UserEditObject() {
 		super();
@@ -43,8 +53,10 @@ public class UserEditObject {
 	@Override
 	public String toString() {
 		return "UserEditObject [id=" + id + ", email=" + email + ", password=" + password + ", accessLevel="
-				+ accessLevel + "]";
+				+ accessLevel + ", failedLogins=" + failedLogins + "]";
 	}
+
+	
 
 	
 	

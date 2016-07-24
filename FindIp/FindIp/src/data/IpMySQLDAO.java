@@ -13,6 +13,7 @@ import dataHelpers.UserDataHelper;
 import entities.Address;
 import entities.Save;
 import entities.User;
+import entities.UserType;
 
 @Transactional
 public class IpMySQLDAO implements IpDAO {
@@ -92,6 +93,8 @@ public class IpMySQLDAO implements IpDAO {
 		return UserDataHelper.convertUserToCurrentUser(em.find(User.class,id));
 	}
 	
+	
+	
 	@Override
 	public User getFullUserById(Integer id){
 		return em.find(User.class,id);
@@ -131,7 +134,21 @@ public class IpMySQLDAO implements IpDAO {
 	// update user:
 
 	// update
-	public String updateUser(User user) {
+	@Override
+	public String updateUser(UserEditObject editedUser) {
+		
+		User user = em.find(User.class, editedUser.getId());
+		
+		user.setEmail(editedUser.getEmail());
+		user.setPassword(editedUser.getPassword());
+		//query  in case of duplicates:
+		UserType newUserType = (UserType) em.createQuery("Select ut from UserType ut WHERE ut.accessLevel = :accessLevel")
+				.setParameter("accessLevel", editedUser.getAccessLevel()).getResultList().get(0);
+		user.setUserType(newUserType);
+		
+		user.setFailedLogins(editedUser.getFailedLogins());
+		
+		
 		return null;
 	}
 

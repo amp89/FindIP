@@ -32,6 +32,7 @@
 				<textarea rows="5" cols="50" ng-maxlength="10000"  name="privateComment" ng-model="ipSaveData.privateComment"></textarea><br>
 			
 				<button type="submit" ng-disabled="ipSaveForm.$invalid">Save!</button>
+				
 				<span ng-show="ipSaveForm.$invalid">Please keep comment under 10000 characters.</span>
 				<span ng-show="saveMessage">{{saveMessage}}</span>
 			</form>

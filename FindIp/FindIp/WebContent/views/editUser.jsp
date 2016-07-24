@@ -60,6 +60,7 @@
 				$scope.userEditData.id = $scope.userData.id;
 				$scope.userEditData.email = $scope.userData.email;
 				$scope.userEditData.password = $scope.userData.password;				
+				$scope.userEditData.failedLogins = $scope.userData.failedLogins;				
 				$scope.userEditData.accessLevel = $scope.userData.userType.accessLevel;
 				
 				$http({

@@ -99,8 +99,8 @@ public class UserRestController {
 	
 	@RequestMapping(value="/editUser", method=RequestMethod.POST, produces = "application/json")
 	private RestMessageObject searchUsers(@RequestBody UserEditObject userToEdit, HttpSession session){
-		System.out.println(userToEdit);
-		
+		System.out.println("user to edit: " + userToEdit);  //TODO remove
+		dao.updateUser(userToEdit);
 		//make sure to read access level for user type, and set accordingly.  keep this comment.
 		
 		return null; //TODO change to usefull message
@@ -109,6 +109,16 @@ public class UserRestController {
 	
 	
 	//delete user
+	@RequestMapping(value="/delete", method=RequestMethod.POST, produces = "application/json")
+	private RestMessageObject deleteuser(@RequestBody UserEditObject userToEdit, HttpSession session){
+		System.out.println("user to delete: " + userToEdit); //TODO remove
+		
+		
+		//make sure to read access level for user type, and set accordingly.  keep this comment.
+		
+		return null; //TODO change to usefull message
+		
+	}
 	
 	//admin delete user
 	

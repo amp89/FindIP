@@ -49,7 +49,7 @@ public interface IpDAO {
 	// update user:
 
 	// update
-	public String updateUser(User user);
+	public String updateUser(UserEditObject userToEdit);
 
 	// delete user:
 
