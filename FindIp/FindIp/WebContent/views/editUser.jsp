@@ -15,9 +15,9 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="0" ng-model="userData.userType.accessLevel" /> Unauthorized<br>
 			
 			<button type="submit" ng-disabled="userEditForm.$invalid">SUBMIT EDIT</button>
-			
 				
 		</form>
+			<button ng-click="deleteUser()">Delete...</button>
 		{{userEditForm.$invalid}}
 		<span ng-show="userEditForm.$invalid">Please enter valid data</span><br>
 		<span ng-show="editMessage">{{editMessage}}</span>
@@ -77,6 +77,26 @@
 					
 				});
 			}; //submitEdits()
+			
+			$scope.deleteUser = function(){
+				console.log($scope.userData.id);
+				var userToDelete = {};
+				userToDelete.id = $scope.userData.id;
+				$http({
+					method:"POST",
+					url:"rest/deleteUser",
+					data:userToDelete,
+					params : {"content-type":"application/json","Accept" : "application/json"}
+				}).then(function success(response){
+					console.log("success :)"); //TODO remove
+					//success message to page
+					$scope.editMessage = "Edit Successful.";
+				},function error(response){
+					console.log("failure :("); //TODO remove
+					$scope.editMessage = "Edit Failed.";
+					
+				});
+			}
 	
 			
 		});//edit controller
