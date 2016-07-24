@@ -72,7 +72,8 @@ public class IpMySQLDAO implements IpDAO {
 		
 		if(userToConfirm.getConfirmation_id().equals(user.getAccessToken().trim())){
 			//TODO get the user using entity manager and set type to user
-			
+			userToConfirm.setUserType(em.find(UserType.class,1));
+			System.out.println("user set"); //TODO remove
 			return true;
 		}else{
 			return false;
@@ -222,9 +223,12 @@ public class IpMySQLDAO implements IpDAO {
 	}
 
 	// get public comments for an address
+	@Override
 	public List<String> getIpPublicComments(Integer addressId) {
 		
 		return null;  // i think these are included with the getIpStats method TODO remove
 	}
+	
+
 
 }
