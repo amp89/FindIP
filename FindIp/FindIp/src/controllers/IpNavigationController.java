@@ -68,7 +68,7 @@ public class IpNavigationController {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("user", cu);
 			mv.addObject("accessToken", cu.getAccessToken());
-			mv.addObject("userToEdit",dao.getFullUserById(Integer.parseInt(userToEditId))); //number comes in as a string
+			mv.addObject("userToEditId",Integer.parseInt(userToEditId)); //number comes in as a string
 			mv.setViewName("editUser");
 			return mv;
 

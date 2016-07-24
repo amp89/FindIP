@@ -40,6 +40,22 @@ public class UserRestController {
 
 	}// getLoggedInUserData
 	
+	@RequestMapping(value = "/getUserData/{returnUserId}/{accessToken}", method = RequestMethod.GET, produces = "application/json")
+	private User getUserData(HttpSession session, @PathVariable int returnUserId, @PathVariable String accessToken) {
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("A TOKEN : " + accessToken);
+		System.out.println("Rest Controller.  currentUserLogin: " + cu); //TODO remove
+		if((cu != null && cu.getAccessToken().equals(accessToken))  && cu.getUserType().getAccessLevel() >= 2){
+			return dao.getFullUserById(returnUserId);
+		}else{
+			return null;
+		}
+		
+		// return "{\"TEST\":\"DATAAAAAA\"}";
+		
+	}// getLoggedInUserData
+	
+	
 	//admin user add
 	
 	//search for users
