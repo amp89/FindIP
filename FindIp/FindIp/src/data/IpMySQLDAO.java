@@ -142,10 +142,15 @@ public class IpMySQLDAO implements IpDAO {
 		if(userExsists != null){
 			return false;
 		}else{
-			User newUser = new User();
-			newUser.setEmail(user.getEmail());
-			//TODO add confirmation code and stuff
+			
+			User newUser = new User(user.getEmail(),
+					"password",
+					UserDataHelper.getNewConfirmationCode(),0,
+					em.createQuery("SELECT ut FROM UserType ut WHERE ut.accessLevel = :accessLevel",UserType.class).setParameter("accessLevel",0).getSingleResult());
+
 			//TODO send confirmation email
+			
+			
 			em.persist(newUser);
 			
 			return true;

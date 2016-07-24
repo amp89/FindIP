@@ -31,6 +31,7 @@ Signup
 		<tr>
 				<td>Email:</td>
 				<td><form:input type="email" name="email" path="email" value="fake@fakemail.com" /></td>
+				<td><form:input type="password" name="password" path="password" required="required" /></td>
 		</tr>	
 		<tr>
 		<td colspan="2"><button type="submit">Sign Up</button></td>

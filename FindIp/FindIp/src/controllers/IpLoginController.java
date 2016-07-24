@@ -58,7 +58,7 @@ public class IpLoginController{
 	}
 
 	@RequestMapping(path="signup", method=RequestMethod.POST)
-	private ModelAndView signUp(@ModelAttribute("user") @Valid UserLoginObject user, Errors errors, HttpSession session){
+	private ModelAndView signUp(UserLoginObject user, HttpSession session){
 		System.out.println(user);
 		if(dao.signUp(user)){
 			ModelAndView mv = new ModelAndView();
