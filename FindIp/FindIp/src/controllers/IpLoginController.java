@@ -114,10 +114,10 @@ public class IpLoginController{
 			CurrentUser cu = dao.authenticateUser(user);
 			if(cu == null){
 				mv.addObject("message","Check your login credentials and try again.");
-				mv.addObject("userLogin",user);
+				mv.addObject("userLogin",new User());
 			}else if(cu.getAccountLocked()){
 				mv.addObject("message","Account Has Been Locked.  Reset your password, and try again.");
-				mv.addObject("userLogin",user);
+				mv.addObject("userLogin",new User());
 			}
 			//login success
 			else if(cu != null && !cu.getAccountLocked()){
@@ -134,7 +134,7 @@ public class IpLoginController{
 		
 //		currentUserLogin = dao.getTestUser();
 //		System.out.println(currentUserLogin);
-		session.setAttribute("currentUserLogin", dao.getTestUser());
+		session.setAttribute("currentUserLogin", null);
 		System.out.println("on session: " + session.getAttribute("currentUserLogin"));
 		//TODO for testing
 //		mv.setViewName("search");

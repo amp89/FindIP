@@ -162,15 +162,7 @@ public class IpMySQLDAO implements IpDAO {
 					UserDataHelper.getNewConfirmationCode(),0,
 					em.createQuery("SELECT ut FROM UserType ut WHERE ut.accessLevel = :accessLevel",UserType.class).setParameter("accessLevel",0).getSingleResult());
 
-			//TODO clean this up, make into own method.
-			Mailer mailer = new Mailer(newUser.getEmail(),"IPFind Account Confirmation", ""
-					+ "\nHere is your confirmation info."
-					+ "\nGo to <a href='localhost:8080/FindIp/emailConfirm.do'>localhost:8080/IPFind/confirm.do</a> and enter your"
-					+ "\ncredentials, with the following key:\n"
-					+ "\n"+newUser.getConfirmation_id()+"\n"
-							+ "\nThank you for using IPFind!");
-			
-			mailer.sendEMail();
+			sendMail(newUser.getEmail(), newUser.getConfirmation_id());
 			
 			
 			em.persist(newUser);
@@ -197,6 +189,32 @@ public class IpMySQLDAO implements IpDAO {
 		
 		user.setFailedLogins(editedUser.getFailedLogins());
 				
+		return null; //TODO make meaningful message
+	}
+	
+	@Override
+	public String updateSelf(UserEditObject editedUser) {
+		
+		User user = em.find(User.class, editedUser.getId());
+		
+		//if email is different, resend confirmation thing.
+		if(!(user.getEmail().trim().toLowerCase().equals(editedUser.getEmail().trim().toLowerCase()))){
+			if(user.getUserType().getAccessLevel() < 2){
+				user.setUserType(em.find(UserType.class,1));
+				//TODO mailer
+				String newConfId = UserDataHelper.getNewConfirmationCode();
+				user.setConfirmation_id(newConfId);
+				user.setEmail(editedUser.getEmail());
+				sendMail(editedUser.getEmail(), newConfId);
+				System.out.println("set email, non admin"); //TODO remove
+			}else{
+				user.setEmail(editedUser.getEmail());
+				System.out.println("set email, admin"); //TODO remove
+			}
+		}
+		
+		user.setPassword(editedUser.getPassword());
+		
 		return null; //TODO make meaningful message
 	}
 
@@ -238,6 +256,29 @@ public class IpMySQLDAO implements IpDAO {
 		return null;  // i think these are included with the getIpStats method TODO remove
 	}
 	
+	public void sendMail(String email, String confid){
+		Mailer mailer = new Mailer(email,"IPFind Account Confirmation", ""
+				+ "\nHere is your confirmation info."
+				+ "\nGo to <a href='localhost:8080/FindIp/emailConfirm.do'>localhost:8080/IPFind/confirm.do</a> and enter your"
+				+ "\ncredentials, with the following key:\n"
+				+ "\n"+confid+"\n"
+						+ "\nThank you for using IPFind!");
+		
+		mailer.sendEMail();
+		
+		
+	}
+	
+	@Override
+	public String resetPassword(UserEditObject userEditObject){
+		User user = em.createQuery("Select u from User u where LOWER(u.email) = LOWER(:email)",User.class)
+				.setParameter("email",userEditObject.getEmail()).getSingleResult();
+		String newPassword = UserDataHelper.getNewConfirmationCode();
+		user.setPassword(newPassword);
+		//TODO change this to have a better way to email a password
+		sendMail(user.getEmail(), newPassword);
+		return null; //change
+	}
 
 
 }

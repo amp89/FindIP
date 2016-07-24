@@ -6,6 +6,9 @@
 	User Dashboard
 	
 	<!-- //get request to edit page with own id -->
+	<a href="updateAccount.do">Change Email or Password</a>
+
+	
 	
 	<div ng-app="showUserDataApp" ng-controller="userController">
 	Your Saves:

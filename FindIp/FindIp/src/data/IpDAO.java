@@ -66,4 +66,8 @@ public interface IpDAO {
 	//get public comments for an address
 	public List<String> getIpPublicComments(Integer addressId);
 
+	public String updateSelf(UserEditObject editedUser);
+	
+	public String resetPassword(UserEditObject userEditObject);
+
 }

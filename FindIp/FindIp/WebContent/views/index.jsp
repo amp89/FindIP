@@ -45,7 +45,54 @@ Signup
 </form:form>
 
 
+	<div ng-app="editUserApp" ng-controller="editController">
+	
+	<form name="resetPassword" ng-submit="resetPassword()">
+<input ng-patter="email" ng-minlength="4" ng-maxlength="45" ng-model="userData.email">
+<button ng-disabled="editUserApp.$invalid" type="submit">Reset Password</button>
+//check your email msg here
+</form>
+	</div>
+	
+	
+	
+	<script>
+		var app = angular.module('editUserApp',[]);
+		
+		app.controller('editController',function($scope,$http){
+			$scope.emailRegex = "^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 
+			var postURL = "rest/resetPassword";
+			
+			$scope.userData = {}
+			
+			
+			$scope.submitEdits = function(){
+				console.log($scope.userData);
+
+				//put userData in a different object to send
+				var userEditData = {};
+				userEditData.email = $scope.userData.email;
+				
+				$http({
+					method:"POST",
+					url:"rest/editUser",
+					data:userEditData,
+					params : {"content-type":"application/json","Accept" : "application/json"}
+				}).then(function success(response){
+					console.log("success :)"); //TODO remove
+					//success message to page
+					$scope.editMessage = "pwd send Successful.";
+				},function error(response){
+					console.log("failure :("); //TODO remove
+					$scope.editMessage = "pwd send Failed.";
+					
+				});
+			}; //submitEdits()
+
+			
+		});//edit controller
+	</script>
 
 </body>
 </html>

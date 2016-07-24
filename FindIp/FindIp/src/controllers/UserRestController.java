@@ -41,6 +41,21 @@ public class UserRestController {
 
 	}// getLoggedInUserData
 	
+	@RequestMapping(value = "/getFullLoggedInUserData/{accessToken}", method = RequestMethod.GET, produces = "application/json")
+	private User getFullLoggedInUserData(HttpSession session, @PathVariable String accessToken) {
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		System.out.println("A TOKEN : " + accessToken);
+		System.out.println("Rest Controller.  currentUserLogin: " + cu); //TODO remove
+		if(cu != null && cu.getAccessToken().equals(accessToken)){
+			return dao.getFullUserById(cu.getId());
+		}else{
+			return null;
+		}
+		
+		// return "{\"TEST\":\"DATAAAAAA\"}";
+		
+	}// getLoggedInUserData
+	
 	//get's another user's information, works for admin only
 	@RequestMapping(value = "/getUserData/{returnUserId}/{accessToken}", method = RequestMethod.GET, produces = "application/json")
 	private User getUserData(HttpSession session, @PathVariable int returnUserId, @PathVariable String accessToken) {
@@ -98,14 +113,30 @@ public class UserRestController {
 	}//search users
 	
 	@RequestMapping(value="/editUser", method=RequestMethod.POST, produces = "application/json")
-	private RestMessageObject searchUsers(@RequestBody UserEditObject userToEdit, HttpSession session){
+	private RestMessageObject editUser(@RequestBody UserEditObject userToEdit, HttpSession session){
 		System.out.println("user to edit: " + userToEdit);  //TODO remove
+		//TODO auth token?
 		dao.updateUser(userToEdit);
 		//make sure to read access level for user type, and set accordingly.  keep this comment.
 		
 		return null; //TODO change to usefull message
 		
 	}
+	
+	
+	
+	@RequestMapping(value="/editSelf", method=RequestMethod.POST, produces = "application/json")
+	private RestMessageObject editSelf(@RequestBody UserEditObject userToEdit, HttpSession session){
+		System.out.println("user to edit: " + userToEdit);  //TODO remove
+		//TODO auth token?
+		dao.updateSelf(userToEdit);
+		//make sure to read access level for user type, and set accordingly.  keep this comment.
+		
+		return null; //TODO change to usefull message
+		
+	}
+	
+	
 	
 	
 	//delete user
@@ -118,6 +149,14 @@ public class UserRestController {
 		
 		return null; //TODO change to usefull message
 		
+	}
+	
+	@RequestMapping(value="/resetPassword", method=RequestMethod.POST, produces="application/json")
+	private RestMessageObject resetPassword(@RequestBody UserEditObject userToReset, HttpSession session){
+		System.out.println("user To reset" + userToReset);
+		dao.resetPassword(userToReset);
+		//
+		return null;
 	}
 	
 	//admin delete user
