@@ -48,11 +48,12 @@
 			$scope.submitEdits = function(){
 				console.log($scope.userData);
 				//Http stuff here.
+				$scope.userData.saves = [];
 				$http({
 					method:"POST",
 					url:"rest/editUser",
 					data:$scope.userData,
-					params : {"content-type":"text/plain","Accept" : "application/json"}
+					params : {"content-type":"application/json","Accept" : "application/json"}
 				}).then(function success(response){
 					console.log("success :)"); //TODO remove
 					//success message to page
