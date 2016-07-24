@@ -36,7 +36,7 @@ Signup
 		<td colspan="2"><button type="submit">Sign Up</button></td>
 		</tr>
 		<tr>
-		<td colspan="2">Check your email for confirmation</td>
+		<td colspan="2">Sign up, then check your email for confirmation</td>
 		
 		</tr>
 

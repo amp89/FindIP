@@ -57,6 +57,23 @@ public class IpLoginController{
 		return new ModelAndView("redirect:/index.do");
 	}
 
+	@RequestMapping(path="signup", method=RequestMethod.POST)
+	private ModelAndView signUp(@ModelAttribute("user") @Valid UserLoginObject user, Errors errors, HttpSession session){
+		System.out.println(user);
+		if(dao.signUp(user)){
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("confirm");
+			System.out.println("will add"); //TODO remove
+			return mv;
+		}else{
+			ModelAndView mv = new ModelAndView("redirect:/index.do");
+			mv.addObject("message","That email is in use... choose another");
+			System.out.println("Exsits"); //TODO remove
+			return mv;
+		}
+	}
+
+	
 	//TODO test method
 	@RequestMapping(path = "login", method = RequestMethod.POST)
 	private ModelAndView login(@ModelAttribute("user") @Valid UserLoginObject user, Errors errors, HttpSession session){

@@ -43,7 +43,7 @@ public interface IpDAO {
 	public String adminAddUser(User user);
 
 	// add by signup
-	public String signUp(User user);
+	public boolean signUp(UserLoginObject user);
 	// send confirmation email (make it norepy-findip@alexmpeterson.com)
 
 	// update user:

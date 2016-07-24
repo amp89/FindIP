@@ -78,6 +78,7 @@ public class IpNavigationController {
 		}
 
 	}
+	
 
 	private ModelAndView getUserAndAccessTokenMV(CurrentUser cu, String viewName) {
 		ModelAndView mv = new ModelAndView();

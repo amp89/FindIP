@@ -3,6 +3,7 @@ package data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -125,9 +126,30 @@ public class IpMySQLDAO implements IpDAO {
 	}
 
 	// add by signup
-	public String signUp(User user) {
+	@Override
+	public boolean signUp(UserLoginObject  user) {
 		//check for exsisting email
-		return null;
+		String query = "SELECT u FROM User u WHERE LOWER(u.email) = LOWER(:email)";
+		String emailParam = user.getEmail();
+		User userExsists = null;
+		try{
+			userExsists = em.createQuery(query,User.class).setParameter("email",emailParam).getSingleResult();			
+		}catch(NoResultException nre){
+			//This should happen
+			System.out.println("does not exsist"); //TODO remove
+		}
+		System.out.println("results found: " + userExsists); //TODO remove
+		if(userExsists != null){
+			return false;
+		}else{
+			User newUser = new User();
+			newUser.setEmail(user.getEmail());
+			//TODO add confirmation code and stuff
+			//TODO send confirmation email
+			em.persist(newUser);
+			
+			return true;
+		}		
 	}
 	// send confirmation email (make it norepy-findip@alexmpeterson.com)
 
