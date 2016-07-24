@@ -64,8 +64,20 @@ public class IpMySQLDAO implements IpDAO {
 	// get saves TODO nevermind - this is attached to the CurrentUser, which is
 	// attached
 	// to the session
-	public String confirmUserAccount(User user){
-		return null;
+	
+	@Override
+	public boolean confirmUserAccount(UserLoginObject user){
+		User userToConfirm = em.createQuery("Select u from User u WHERE LOWER(u.email) = LOWER(:email)"
+				,User.class).setParameter("email",user.getEmail()).getSingleResult();
+		
+		if(userToConfirm.getConfirmation_id().equals(user.getAccessToken().trim())){
+			//TODO get the user using entity manager and set type to user
+			
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 	
 	// create save

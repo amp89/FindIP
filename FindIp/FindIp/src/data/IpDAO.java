@@ -18,7 +18,7 @@ public interface IpDAO {
 	// user session data
 	// get saves TODO nevermind -  this is attached to the CurrentUser, which is attached
 	// to the session
-	public String confirmUserAccount(User user); 
+	public boolean confirmUserAccount(UserLoginObject user); 
 	
 	// create save
 	public String saveIpAddress(IpSaveObject save, Integer userId);

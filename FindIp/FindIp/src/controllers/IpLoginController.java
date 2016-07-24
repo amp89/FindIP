@@ -63,6 +63,7 @@ public class IpLoginController{
 		if(dao.signUp(user) && ((CurrentUser)session.getAttribute("currentUserLogin") == null)){
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("confirm");
+			mv.addObject("userLogin",new UserLoginObject());
 			System.out.println("will add"); //TODO remove
 			return mv;
 		}else{
@@ -73,10 +74,23 @@ public class IpLoginController{
 		}
 	} // signUp()
 	
+	@RequestMapping(path="reconfirm", method=RequestMethod.GET)
+	private ModelAndView reconfirm(HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("confirm");
+		mv.addObject("userLogin",new UserLoginObject());
+		return mv;
+		
+	}
+	
 	@RequestMapping(path="confirm", method=RequestMethod.POST)
 	private ModelAndView confrim(UserLoginObject userToConfrim, HttpSession sessoin){
-		//used accessToken to store confirmation 
-		return null;
+		if(dao.confirmUserAccount(userToConfrim)){
+			return new ModelAndView("redirect:/index.do");
+		}else{
+			ModelAndView mv = new ModelAndView("redirect:/reconfirm.do");
+			return mv;
+		}
 	}//confrim
 	
 
