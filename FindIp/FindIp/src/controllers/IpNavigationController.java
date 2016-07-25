@@ -90,6 +90,7 @@ public class IpNavigationController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", cu);
 		mv.addObject("accessToken", cu.getAccessToken());
+		System.out.println("returning " + cu);
 		mv.setViewName(viewName);
 		return mv;
 	}
