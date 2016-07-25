@@ -9891,3 +9891,9 @@ java.lang.ClassCastException: org.eclipse.core.internal.filebuffers.Synchronizab
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2016-07-25 01:33:10.787
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2016-07-25 01:34:35.423
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2016-07-25 01:34:35.424
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
