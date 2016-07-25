@@ -1,9 +1,9 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">  <%-- 0 and not 1, users need to access this page to modify their own accounts --%>
 
-	<div ng-app="editUserApp" ng-controller="editController">
+	<div ng-app="editUserApp" ng-controller="editController" ng-show="userExists">
 	
-		<form name="userEditForm" ng-submit="submitEdits()" ng-show="userExists">
+		<form name="userEditForm" ng-submit="submitEdits()">
 			User Id: ${userToEdit.id}<br>
 			Email: <input ng-pattern="emailRegex" ng-minlength="5" ng-maxlength="45" name="email" ng-model="userData.email" required/><br>
 			Password: <input type="text" ng-minlength="0" ng-maxlength="200" name="password" ng-model="userData.password" required/><br>
