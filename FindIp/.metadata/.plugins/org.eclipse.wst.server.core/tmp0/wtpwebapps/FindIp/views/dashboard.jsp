@@ -1,16 +1,17 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
 
-
+<br><br>
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">
 	
-	User Dashboard
-	
-	<!-- //get request to edit page with own id -->
+	Dashboard
+	<br>
+	<br>
 	<a href="updateAccount.do">Change Email or Password</a>
-
+	<br>
+	<br>
 	
 	
-	<div ng-app="showUserDataApp" ng-controller="userController">
+	<div ng-app="userDataApp" ng-controller="userController">
 	Your Saves:
 	<ul>
 		<li ng-repeat="s in userData.saves">
@@ -33,62 +34,7 @@
 	
 	</div>
 	
-	<script>
-		var app = angular.module("showUserDataApp",[]);
-		app.controller('userController',function($scope,$http){
-			/* $scope.getUserData = {};
-			$scope.getUserData.accessToken = "${accessToken}";
-			 */
-			
-			 
-			$scope.getData = function(){
-				 var getUrl = "rest/getLoggedInUserData/"+"${accessToken}";
-			 
-				console.log(getUrl);
-				$scope.userData = {};
-				$http({
-					method:"GET",
-					url:getUrl,
-					params : {"content-type":"text/plain","Accept" : "application/json"}
-				}).then(function success(response){
-					$scope.userData = response.data;
-					console.log($scope.userData); //TODO remove
-				},function error(response){
-					console.log("User not found.")
-				});
-			 };
-			 
-			 $scope.getData();
-			
-			$scope.deleteSave = function(saveId){
-				console.log(saveId);
-				var saveData = {};
-				saveData.saveId = saveId;
-				saveData.userId = $scope.userData.id;
-				saveData.accessToken = "${accessToken}";
-				
-				$http({
-			
-					method:"POST",
-					url:"rest/deleteSave",
-					data:saveData,
-					params : {"content-type":"application/json","Accept" : "application/json"}
-				}).then(function success(response){
-					console.log("DELETEDDDDDD :D "); //TODO remove
-					//will this make refresh uncessesary???? TODO remove
-					$scope.getData();
-
-					
-				}, function error(response){
-					console.log("No DELETED :("); //TODO remove
-				});//end http
-				
-			};
-			
-			
-			
-			
-		});
+	<script src="angular/apps/userDataApp.js">
 	</script>
 </c:if>
 </body>
