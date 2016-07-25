@@ -36,6 +36,19 @@
 			$scope.userData = {}
 			$scope.userExists = false;
 			
+			$http({
+ 				method:"GET",
+ 				url:getUrl,
+ 				params : {"content-type":"text/plain","Accept" : "application/json"}
+ 			}).then(function success(response){
+ 				console.log("WORKED :)"); //TODO remove
+ 				console.log(response.data); //TODO remove
+				$scope.userExists = true;
+ 				$scope.userData = response.data;
+ 			},function error(response){
+ 				console.log("Failed :("); //TODO remove
+ 				
+ 			});	
 			
 			$scope.submitEdits = function(){
 				console.log($scope.userData);
