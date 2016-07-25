@@ -3,8 +3,10 @@
 
 	<div ng-app="searchApp" ng-controller="searchForm">
 	<div ng-submit="getIpInfo()">
+	<br>
+	Search
 	<br><br>
-		Enter an address, <!-- <br>&nbsp;&nbsp;&nbsp;ex: x.x.x.x, xxx.xx.xx.xxx, xxx.xxx.xxx.xxx, and so on. -->
+		Enter an ip address <!-- <br>&nbsp;&nbsp;&nbsp;ex: x.x.x.x, xxx.xx.xx.xxx, xxx.xxx.xxx.xxx, and so on. -->
 		<form  name="ipSearchForm">
 			<input name="ipAddress" type="text" ng-pattern="regex" ng-minlength="7" ng-maxlength="15" ng-model=ipSearchData.ipAddress required/>
 			<button type="submit" ng-disabled="ipSearchForm.$invalid">SEARCH {{ipSearchData.ipAddress}}</button>

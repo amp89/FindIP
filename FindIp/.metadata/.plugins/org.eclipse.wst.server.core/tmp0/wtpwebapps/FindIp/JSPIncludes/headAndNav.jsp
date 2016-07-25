@@ -11,13 +11,11 @@
 </head>
 <body>
 
-<!-- nav here -->
+<!-- nav will gos here -->
 ${message}
-DEBUG: ${user}
+<%-- DEBUG: ${user} --%>
 <br>
 <br>
-
-
 
 <a href="index.do">Home</a> 
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">

@@ -2,7 +2,7 @@
 
 
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">
-	
+	<br><br>
 	Self Update
 	
 	<!-- //get request to edit page with own id -->
@@ -12,9 +12,9 @@
 		Changing Email requires reconfirmation upon next login.
 		</c:if>
 		<form name="updateForm" ng-submit="updateData()">
-		New Email:<input ng-pattern="emailRegex" ng-model="userData.email">
-		New Password:<input ng-minlength="0" ng-maxlength="200" ng-model="userData.password">
-		<button type="submit">Submit</button>
+		New Email:<input ng-pattern="emailRegex" ng-model="userData.email"><br>
+		New Password:<input ng-minlength="0" ng-maxlength="200" ng-model="userData.password"><br>
+		<button type="submit">Submit</button><br>
 		</form>
 		
 		<div ng-show="resultMessage">{{resultMessage}}</div>
