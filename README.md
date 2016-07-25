@@ -1,12 +1,18 @@
-#FindIp - And ip address lookup tool
+#FindIp - an ip address lookup tool
 ###Purpose
-FindIp is an ip lookup tool.  It allows the user to sign in, search for IP addresses, and save them with comments.  The data came from IP2Location.com.  I downloaded a large CSV file and wrote a Java program to read in the data, and load it into a MySQL database.
+FindIp is an ip lookup tool web application.  It allows the user to sign in, search for IP addresses, and save them with comments.  The data came from IP2Location.com.  I downloaded a large CSV file and wrote a Java program to read and format the data, and then load it into a MySQL database.
 
 ###Features
 * Multi-level user access (user and admin accounts)
+* A sign up feature that requires an confirmation code that is emailed to the user
+* Forgotten password feature that emails the user a new password
 * Saves - the user can save ip addresses that were searched
 * Huge database of ip addresses.
+
 ###CurrentState
+
+Currently, the web application is working, but not yet deployed.  There is no front end styling at the moment, however I will be utilizing Bootstrap for a responsive design.  A few things need to be refactored and cleaned up, but it is fully functional, including the confirmation and forgotten password emails.
+
 ###Technologies
 * Front End
   * HTML
