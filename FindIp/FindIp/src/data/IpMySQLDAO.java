@@ -32,7 +32,7 @@ public class IpMySQLDAO implements IpDAO {
 	// check missed loggins and authenticate
 	public CurrentUser authenticateUser(UserLoginObject user) {
 		String email = user.getEmail().trim().toLowerCase();
-		String password = user.getPassword().trim().toLowerCase();
+		String password = user.getPassword().trim();
 		
 		User loggedIn = em.createQuery("Select u from User u WHERE LOWER(email) = LOWER(:email)",User.class).setParameter("email",email).getSingleResult();		
 
@@ -275,6 +275,7 @@ public class IpMySQLDAO implements IpDAO {
 				.setParameter("email",userEditObject.getEmail()).getSingleResult();
 		String newPassword = UserDataHelper.getNewConfirmationCode();
 		user.setPassword(newPassword);
+		user.setFailedLogins(0);
 		//TODO change this to have a better way to email a password
 		sendMail(user.getEmail(), newPassword);
 		return null; //change

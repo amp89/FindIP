@@ -47,11 +47,11 @@ Signup
 
 	<div ng-app="editUserApp" ng-controller="editController">
 	
-	<form name="resetPassword" ng-submit="resetPassword()">
-<input ng-patter="email" ng-minlength="4" ng-maxlength="45" ng-model="userData.email">
-<button ng-disabled="editUserApp.$invalid" type="submit">Reset Password</button>
-//check your email msg here
-</form>
+	<form name="resetPasswordForm" ng-submit="resetPassword()">
+	<input ng-pattern="emailRegex" ng-minlength="4" ng-maxlength="45" ng-model="userData.email" required>
+	<button ng-disabled="resetPasswordForm.$invalid" type="submit">Reset Password</button>
+	//check your email msg here
+	</form>
 	</div>
 	
 	
@@ -62,21 +62,20 @@ Signup
 		app.controller('editController',function($scope,$http){
 			$scope.emailRegex = "^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 
-			var postURL = "rest/resetPassword";
 			
-			$scope.userData = {}
+			$scope.userData = {};
 			
 			
-			$scope.submitEdits = function(){
+			$scope.resetPassword = function(){
 				console.log($scope.userData);
-
+				
 				//put userData in a different object to send
 				var userEditData = {};
 				userEditData.email = $scope.userData.email;
 				
 				$http({
 					method:"POST",
-					url:"rest/editUser",
+					url:"rest/resetPassword",
 					data:userEditData,
 					params : {"content-type":"application/json","Accept" : "application/json"}
 				}).then(function success(response){
@@ -88,7 +87,7 @@ Signup
 					$scope.editMessage = "pwd send Failed.";
 					
 				});
-			}; //submitEdits()
+			}; //reset password()
 
 			
 		});//edit controller

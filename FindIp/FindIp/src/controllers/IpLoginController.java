@@ -114,15 +114,17 @@ public class IpLoginController{
 			CurrentUser cu = dao.authenticateUser(user);
 			if(cu == null){
 				mv.addObject("message","Check your login credentials and try again.");
-				mv.addObject("userLogin",new User());
+				mv.addObject("userLogin",new User()); 
+				mv.addObject("user",new User());//this help?
 			}else if(cu.getAccountLocked()){
 				mv.addObject("message","Account Has Been Locked.  Reset your password, and try again.");
 				mv.addObject("userLogin",new User());
+				mv.addObject("user",new User()); //this help?
 			}
-			//login success
+			//login success TODO check if getAccountLocked was ever implemented.
 			else if(cu != null && !cu.getAccountLocked()){
 				session.setAttribute("currentUserLogin",cu);
-				mv.setViewName("search");
+				mv.setViewName("search");   //TODO take this and the next line out to see if it affects anything
 				mv.addObject("user",user);
 				return new ModelAndView("redirect:/search.do");
 			}
