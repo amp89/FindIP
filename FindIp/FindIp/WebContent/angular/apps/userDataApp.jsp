@@ -1,4 +1,4 @@
-
+<script>
 		var app = angular.module("userDataApp",[]);
 		app.controller('userController',function($scope,$http){
 			/* $scope.getUserData = {};
@@ -54,3 +54,4 @@
 			
 			
 		});
+</script>

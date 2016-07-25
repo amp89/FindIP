@@ -34,8 +34,8 @@
 	
 	</div>
 	
-	<script src="angular/apps/userDataApp.js">
-	</script>
+<%@ include file="../angular/apps/userDataApp.jsp"%>
+
 </c:if>
 </body>
 </html>
