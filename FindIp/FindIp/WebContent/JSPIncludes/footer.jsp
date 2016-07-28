@@ -1,4 +1,3 @@
-FOOTER
 	<script src="js/changeNav.js"></script>
 
     <!-- Bootstrap core JavaScript

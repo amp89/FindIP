@@ -1,4 +1,11 @@
 body{
 	background-color:#ff8b00;
 	color:white;
+	font-family:arial;
+}
+
+.pageTitle{
+	font-size: 5em;
+	text-align: center;
+	margin:auto;
 }
