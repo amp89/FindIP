@@ -78,7 +78,8 @@ check if jquery script be omitted b/c of load later in page.
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
+<div class="text-center">
 ${message}
+</div>
 <%-- DEBUG: ${user}  --%>
 

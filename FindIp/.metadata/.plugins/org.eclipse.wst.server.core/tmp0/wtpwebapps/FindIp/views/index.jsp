@@ -1,58 +1,100 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
-<br><br>
-<form:form action="login.do" modelAttribute="userLogin">
-	<table>
-		<tr>
-		<td colspan="2">Sign In</td>
-		</tr>
-		<tr>
-				<td>Email:</td>
-				<td><form:input type="email" name="email" path="email" value="admin@fakemail.com" /></td>
-		</tr>
-		
-		<tr>
-				<td>Password:</td>
-				<td><form:input type="password" name="password"  path="password" value="password" /></td>
-		</tr>
-		
-		<tr>
-		<td colspan="2"><button type="submit">Sign In</button></td>
-		</tr>
-	</table>
+
+<div class="container">
+	<div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+		<div class="col-xs-12" id="pageTitle">Welcome to FindIP</div>
+		<form:form action="login.do" modelAttribute="userLogin">
+			<div class="col-xs-12 col-md-4">
+				Email:
+			</div>
+			
+			<div class="col-xs-12 col-md-8">
+						<form:input class="fill_div"  type="email" name="email" path="email" value="admin@fakemail.com" />
+			</div>
+			<div class="col-xs-12 col-md-4">
+				Password:
+			</div>
+			<div class="col-xs-12 col-md-8">
+
+						<form:input class="fill_div"  type="password" name="password"  path="password" value="password" />
+			</div>
+			
+			<div class="col-xs-12">
+				<button class="fill_div" type="submit">Sign In</button>
+			</div>
+			
+		</form:form>
 	
-</form:form>
-<br><br>
-Signup
+	<br><br><br><br>
+	
+			<div class="col-xs-12 text-center">
+			<h3>Sign Up!</h3>
+			</div>
+			
+			
+			<form:form action="signup.do" modelAttribute="userLogin">
+				<div class="col-xs-12 col-md-4">
+					Email:
+				</div>		
+			
+				<div class="col-xs-12 col-md-8">
+					<form:input class="fill_div" type="email" name="email" path="email" value="fake@fakemail.com" />
+				</div>
+				<div class="col-xs-12 col-md-4">
+					Password:
+				</div>
+				
+				<div class="col-xs-12 col-md-8">
+					<form:input class="fill_div"  type="password" name="password" path="password" required="required" />
+				
+				</div>
+				<div class="col-xs-12">
+					<button class="fill_div" type="submit">Sign Up</button>
+				</div>
+				<div class="col-xs-12">
+				
+					Sign up, then check your email for confirmation
+				</div>
+			
+			</form:form>
+			
+			
+				<br><br><br><br>
+	
+			<div class="col-xs-12 text-center">
+			<h3>Reset Your Password</h3>
+			</div>
 
-
-<form:form action="signup.do" modelAttribute="userLogin">
-	<table>
-		<tr>
-				<td>Email:</td>
-				<td><form:input type="email" name="email" path="email" value="fake@fakemail.com" /></td>
-				<td><form:input type="password" name="password" path="password" required="required" /></td>
-		</tr>	
-		<tr>
-		<td colspan="2"><button type="submit">Sign Up</button></td>
-		</tr>
-		<tr>
-		<td colspan="2">Sign up, then check your email for confirmation</td>
-		
-		</tr>
-
-	</table>
-</form:form>
-
-<br><br>
-	<div ng-app="changePassword" ng-controller="editController">
-	Reset Your Password:
-	<form name="resetPasswordForm" ng-submit="resetPassword()">
-	<input ng-pattern="emailRegex" ng-minlength="4" ng-maxlength="45" ng-model="userData.email" required>
-	<button ng-disabled="resetPasswordForm.$invalid" type="submit">Reset Password</button>
-	//check your email msg here
-	</form>
+			<div class="col-xs-12" ng-app="changePassword" ng-controller="editController">
+				<form name="resetPasswordForm" ng-submit="resetPassword()">
+				<div class="col-xs-12 col-md-2">
+				Email:
+				</div>
+				<div class="col-xs-12 col-md-6">
+				<input class="fill_div" ng-pattern="emailRegex" ng-minlength="4" ng-maxlength="45" ng-model="userData.email" required>
+				</div>
+				<div class="col-xs-12 col-md-4">
+				<button class="fill_div" ng-disabled="resetPasswordForm.$invalid" type="submit">Reset Password</button>
+				</div>
+				<div class="col-xs-12">
+				Click Reset Password, and then check your email.
+				<!-- change this to a message after successful email -->
+				</div>
+				</form>
+			</div>
+			
+			
+	
+	
+	
+	
 	</div>
 
+</div> <!-- container -->
+<br><br>
+
+<br><br>
+	
 	<script src="angular/apps/changePassword.js">
 	</script>
 

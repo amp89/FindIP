@@ -8,7 +8,7 @@
 	</script>
 
 <div class="container">
-	<div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+
 	<div id="pageTitle" class="text-center">Manage Users</div>
 	
 		<div ng-app="usersApp" ng-controller="userData">
