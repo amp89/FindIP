@@ -11,7 +11,7 @@ FindIp is an IP lookup web application.  It allows the user to sign in, search f
 
 ###CurrentState
 
-Currently, the web application is working, but not yet deployed.  There is no front end styling at the moment, however I will be utilizing Bootstrap for a responsive design.  A few things need to be refactored and cleaned up, but it is fully functional, including the confirmation and forgotten password emails.
+Currently, the web application is working, but not yet deployed.  Front end styling has been completed using bootstrap, CSS, and Javascript/JQuery.  A few things need to be refactored and cleaned up, but it is fully functional, including the confirmation and forgotten password emails.  There are a few buggy things, most of which will be solved by refactoring some of the AngularJS code.
 
 ###Technologies
 * Front End
@@ -30,9 +30,9 @@ Currently, the web application is working, but not yet deployed.  There is no fr
 
 ###Plans
 * Front-end plans include...
-  * Add Bootstrap, as well as css for responsive styling
+  * ~~Add Bootstrap, as well as css for responsive styling~~ DONE
   * Double check which things show (ng-show) and make sure uneccesary information isn't being displayed
-  * Format some data that is still printed out in JSON
+  * ~~Format some data that is still printed out in JSON~~ DONE
   * Clean up Angular apps to make them more readable
   * Add some functionality:
     * Display public comments on IP address search.

@@ -42,8 +42,8 @@ public class LoadIpCSVData {
 			br = new BufferedReader(new FileReader(FILEPATH),100000);
 			String line = "";
 			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
-//			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
-				while (((line = br.readLine()) != null) && counter++ < 500000) { //TODO TEST LINE
+			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
+//				while (((line = br.readLine()) != null) && counter++ < 500000) { //TODO TEST LINE
 				
 				String[] lineTokens = line.trim().split("\",\"");
 				Long startIp = Long.parseLong(lineTokens[0].replace("\"", "").trim());
