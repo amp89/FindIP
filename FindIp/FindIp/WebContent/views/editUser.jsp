@@ -1,4 +1,10 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
+
+	<script>
+	$(document).ready(function(){
+		$("title").text("IpFind | Edit User");
+	});
+	</script>
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">  <%-- 0 and not 1, users need to access this page to modify their own accounts --%>
 
 	<div ng-app="editUserApp" ng-controller="editController" ng-show="userExists">

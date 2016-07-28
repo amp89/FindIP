@@ -1,5 +1,10 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
 
+<script>
+$(document).ready(function(){
+	$("title").text("IpFind | Update Your Account");
+});
+</script>
 
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">
 	<br><br>

@@ -1,6 +1,11 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
 
-Confirm.
+	<script>
+	$(document).ready(function(){
+		$("title").text("IpFind | Manage Users");
+	});
+	</script>
+Confirm your account
 
 <form:form name="confirm" action="confirm.do" modelAttribute="userLogin">
 	<form:input name="email" path="email" required="required" />

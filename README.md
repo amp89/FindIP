@@ -1,4 +1,8 @@
 #FindIp - An IP Address Lookup Tool
+
+#####Link
+Coming soon.
+
 ###Purpose
 FindIp is an IP lookup web application.  It allows the user to sign in, search for IP addresses, and save them with comments.  The data came from IP2Location.com.  I downloaded a large CSV file and wrote a Java program to read and format the data, and then load it into a MySQL database.
 
@@ -30,7 +34,7 @@ Currently, the web application is working, but not yet deployed.  Front end styl
 
 ###Plans
 * Front-end plans include...
-  * ~~Add Bootstrap, as well as css for responsive styling~~ DONE
+  * ~~Add Bootstrap, as well as css for responsive styling~~ DONE, (Edit own account, and confirmation pages still need to be finished)
   * Double check which things show (ng-show) and make sure uneccesary information isn't being displayed
   * ~~Format some data that is still printed out in JSON~~ DONE
   * Clean up Angular apps to make them more readable
