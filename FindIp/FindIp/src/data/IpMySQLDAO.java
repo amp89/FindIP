@@ -163,7 +163,7 @@ public class IpMySQLDAO implements IpDAO {
 					UserDataHelper.getNewConfirmationCode(),0,
 					em.createQuery("SELECT ut FROM UserType ut WHERE ut.accessLevel = :accessLevel",UserType.class).setParameter("accessLevel",0).getSingleResult());
 
-			sendMail(newUser.getEmail(), newUser.getConfirmation_id());
+			sendSignUpMail(newUser.getEmail(), newUser.getConfirmation_id());
 			
 			
 			em.persist(newUser);
@@ -265,13 +265,29 @@ public class IpMySQLDAO implements IpDAO {
 
 
 	
-	public void sendMail(String email, String confid){
+	
+	public void sendSignUpMail(String email, String confid){
 		Mailer mailer = new Mailer(email,"IPFind Account Confirmation", ""
 				+ "\nHere is your confirmation info."
-				+ "\nGo to <a href='localhost:8080/FindIp/emailConfirm.do'>localhost:8080/IPFind/confirm.do</a> and enter your"
+				+ "\nGo to localhost:8080/FindIp/emailConfirm.do and enter your"
 				+ "\ncredentials, with the following key:\n"
 				+ "\n"+confid+"\n"
 						+ "\nThank you for using IPFind!");
+		
+		mailer.sendEMail();
+		
+		
+	}
+	
+	
+	
+	public void sendResetMail(String email, String confid){
+		Mailer mailer = new Mailer(email,"IPFind Account Confirmation", ""
+				+ "\nHere is your new password."
+				+ "\nGo to localhost:8080/FindIp and enter your"
+				+ "\ncredentials, with the following password:\n"
+				+ "\n"+confid+"\n"
+				+ "\nThank you for using IPFind!");
 		
 		mailer.sendEMail();
 		
