@@ -251,14 +251,14 @@ public class IpMySQLDAO implements IpDAO {
 	}
 	
 	@Override
-	public List<String> getPublicComments(Integer addressId){
+	public List<SingleComment> getPublicComments(Integer addressId){
 		Address a = em.find(Address.class, addressId);
 		List<Save> saves = a.getSaves();
 		System.out.println("DAO: address: " + a);  //TODO remove
 		System.out.println("DAO: address: saves " + a.getSaves()); //TODO remove
-		List<String> publicComments = new ArrayList<>();
+		List<SingleComment> publicComments = new ArrayList<>();
 		for (Save s : saves) {
-			publicComments.add(s.getPublicComment());
+			publicComments.add(new SingleComment(s.getPublicComment()));
 		}
 		return publicComments;
 	}

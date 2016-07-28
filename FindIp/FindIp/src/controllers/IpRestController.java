@@ -17,6 +17,7 @@ import data.IpDAO;
 import data.IpSaveObject;
 import data.IpSearchObject;
 import data.RestMessageObject;
+import data.SingleComment;
 import data.UserLoginObject;
 import entities.Address;
 
@@ -100,7 +101,7 @@ public class IpRestController {
 	
 	//get public comments
 	@RequestMapping(value = "/getPublicComments/{addressId}/{accessToken}", method = RequestMethod.GET, produces= "application/json")
-	private List<String> getPublicComments(HttpSession session, @PathVariable Integer addressId, @PathVariable String accessToken){
+	private List<SingleComment> getPublicComments(HttpSession session, @PathVariable Integer addressId, @PathVariable String accessToken){
 		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
 		System.out.println("cu: " + cu); //TODO remove
 		System.out.println("at: " + accessToken);

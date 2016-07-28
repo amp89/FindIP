@@ -29,7 +29,7 @@
 		<!-- to add: maybe logged in user's comments ?? maybe just leave that on the dashboard? -->
 		<div ng-show="publicComments">
 			<ul>Public Comments</ul>
-				<li ng-repeat="(i,c) in publicComments">{{c}}</li>
+				<li ng-repeat="(i,c) in publicComments" ng-show="c.comment">{{c.comment}}</li>
 		</div>
 				
 			<form name="ipSaveForm" ng-submit="saveIp()">
