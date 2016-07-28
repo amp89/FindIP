@@ -12,6 +12,7 @@
 		$scope.ipSearchData = {};
 		$scope.ipResponseData = {};
 		$scope.ipSaveData = {};
+		$scope.publicComments = {};
 		$scope.saveMessage = "";
 		
 		$scope.searchCompleteFlag = false;
@@ -32,12 +33,28 @@
 				console.log(response.data); //TODO remove
 				$scope.searchCompleteFlag = true;
 				$scope.ipResponseData = response.data;
+				$scope.getComments();
 				
 			}, function error(response){
 				console.log("No post search :("); //TODO remove
 			});//end http
 			
 		};//end get info
+		
+		$scope.getComments = function(){
+			$http({
+				method:"GET",
+				url:"rest/getPublicComments/"+$scope.ipResponseData.id+"/"+"${accessToken}",
+				params : {"content-type":"application/json","Accept" : "application/json"}
+			}).then(function success(response){
+				console.log("get comments :)"); //TODO remove
+				console.log(response.data); //TODO remove
+				$scope.publicComments = response.data; 
+				
+			}, function error(response){
+				console.log("No get comments :("); //TODO remove				
+			});
+		};
 		
 		$scope.saveIp = function(){
 			console.log("save: " + $scope.ipSaveData)

@@ -1,8 +1,11 @@
 package controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -94,6 +97,21 @@ public class IpRestController {
 		return new RestMessageObject("Did not work.  Try again later");
 		
 	}//saveIpAddress
+	
+	//get public comments
+	@RequestMapping(value = "/getPublicComments/{addressId}/{accessToken}", method = RequestMethod.GET, produces= "application/json")
+	private List<String> getPublicComments(HttpSession session, @PathVariable Integer addressId, @PathVariable String accessToken){
+		CurrentUser cu = (CurrentUser) session.getAttribute("currentUserLogin");
+		if(cu != null && cu.getAccessToken().equals(accessToken)){
+			System.out.println("returning " + dao.getIpPublicComments(addressId)); //TODO remove
+			return dao.getIpPublicComments(addressId);
+		}else{
+			System.out.println("no comments found?"); //TODO remove
+			return null;
+		}
+	
+	}
+//	
 	
 	private void refreshUser(HttpSession session){
 		CurrentUser cu = (CurrentUser)session.getAttribute("currentUserLogin");

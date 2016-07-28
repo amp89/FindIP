@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -247,6 +248,17 @@ public class IpMySQLDAO implements IpDAO {
 			return addressResultList.get(1);
 			
 		}
+	}
+	
+	@Override
+	public List<String> getPublicComments(Integer addressId){
+		Address a = em.find(Address.class, addressId);
+		List<Save> saves = a.getSaves();
+		List<String> publicComments = new ArrayList<>();
+		for (Save s : saves) {
+			publicComments.add(s.getPublicComment());
+		}
+		return publicComments;
 	}
 
 	// get public comments for an address

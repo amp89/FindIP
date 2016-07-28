@@ -26,8 +26,11 @@
 		<h2>Location:</h2>
 		<h3>{{ipResponseData.city}}, {{ipResponseData.region}}, {{ipResponseData.countryName}}</h3>
 		<h3>Lat: {{ipResponseData.latitude}} Lon: {{ipResponseData.longitude}}</h3>
-		<!-- to add: repeat public comments -->
-		
+		<!-- to add: maybe logged in user's comments ?? maybe just leave that on the dashboard? -->
+		<div ng-show="publicComments">
+			<ul>Public Comments</ul>
+		</div>
+				
 			<form name="ipSaveForm" ng-submit="saveIp()">
 			
 				Public Comment (Optional):<br>
