@@ -24,6 +24,4 @@
 
 
 <%@ include file="../angular/apps/editSelfApp.jsp"%>
-
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

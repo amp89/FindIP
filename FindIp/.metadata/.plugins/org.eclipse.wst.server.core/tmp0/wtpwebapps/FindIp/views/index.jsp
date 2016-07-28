@@ -56,5 +56,4 @@ Signup
 	<script src="angular/apps/changePassword.js">
 	</script>
 
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

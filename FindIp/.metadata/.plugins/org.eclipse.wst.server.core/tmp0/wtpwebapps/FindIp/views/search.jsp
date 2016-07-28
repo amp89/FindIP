@@ -58,5 +58,4 @@
 	
 	
 	<%@ include file="../angular/apps/searchApp.jsp"%>
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

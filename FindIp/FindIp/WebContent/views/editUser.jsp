@@ -28,5 +28,4 @@
 </c:if>
 
 	<%@ include file="../angular/apps/editUser.jsp"%>
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

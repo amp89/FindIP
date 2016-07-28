@@ -37,5 +37,4 @@
 <%@ include file="../angular/apps/userDataApp.jsp"%>
 
 </c:if>
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

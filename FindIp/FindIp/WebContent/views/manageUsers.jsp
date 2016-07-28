@@ -45,6 +45,4 @@ Manage Users:
 
 <%@ include file="../angular/apps/manageUsersApp.js"%>
 
-
-</body>
-</html>
+<%@ include file="../JSPIncludes/footer.jsp"%>

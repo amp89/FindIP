@@ -29,7 +29,8 @@ check if jquery script be omitted b/c of load later in page.
 		<script src="angular/angular.min.js"></script>
 		
 		
-		<link src="css/custom.css"></link>
+		<link href="css/custom.css" rel="stylesheet"></link>
+		
 		
 </head>
 <body>

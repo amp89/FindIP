@@ -7,3 +7,5 @@ Confirm.
 	<form:input name="confirmationCode" path="accessToken" required="required" />
 	<button type="submit">SUBMIT</button>
 </form:form>
+
+<%@ include file="../JSPIncludes/footer.jsp"%>
