@@ -206,7 +206,7 @@ public class IpMySQLDAO implements IpDAO {
 				String newConfId = UserDataHelper.getNewConfirmationCode();
 				user.setConfirmation_id(newConfId);
 				user.setEmail(editedUser.getEmail());
-				sendMail(editedUser.getEmail(), newConfId);
+				sendSignUpMail(editedUser.getEmail(), newConfId);
 				System.out.println("set email, non admin"); //TODO remove
 			}else{
 				user.setEmail(editedUser.getEmail());
@@ -302,7 +302,7 @@ public class IpMySQLDAO implements IpDAO {
 		user.setPassword(newPassword);
 		user.setFailedLogins(0);
 		//TODO change this to have a better way to email a password
-		sendMail(user.getEmail(), newPassword);
+		sendResetMail(user.getEmail(), newPassword);
 		return null; //change
 	}
 
