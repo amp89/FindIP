@@ -35,16 +35,17 @@ public class LoadIpCSVData {
 		 * read each line, make a new Address, and and persist to db
 		 */
 		// start transaction
-		em.getTransaction().begin();
 		BufferedReader br = null;
 		try {
+			em.getTransaction().begin();
 			System.out.println("Start Read");
-			br = new BufferedReader(new FileReader(FILEPATH),100000);
+			br = new BufferedReader(new FileReader(FILEPATH),1500000);
 			String line = "";
 			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
 			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
-//				while (((line = br.readLine()) != null) && counter++ < 500000) { //TODO TEST LINE
-				
+//				while (((line = br.readLine()) != null) && counter < 500000) { //TODO TEST LINE
+				if(counter%10000 == 0)
+					System.out.println(++counter);
 				String[] lineTokens = line.trim().split("\",\"");
 				Long startIp = Long.parseLong(lineTokens[0].replace("\"", "").trim());
 				Long endIp = Long.parseLong(lineTokens[1].replace("\"", "").trim());
@@ -60,12 +61,14 @@ public class LoadIpCSVData {
 						latitude, longitude, postalCode);
 				// persist addr
 				em.persist(newAddress);
+				
 
 			}
 
 		} catch (IOException ioe) {
 			System.err.println(ioe);
 		} finally {
+			em.getTransaction().commit();
 			try {
 				System.out.println("LOAD HAS STOPPED");
 				br.close();
@@ -73,8 +76,6 @@ public class LoadIpCSVData {
 				System.err.println(ioe2);
 			}
 		} // end finally
-		
-		em.getTransaction().commit();
 
 	}
 
