@@ -53,5 +53,16 @@ button:disabled:hover{
 	margin-bottom:12px;
 }
 
+.save-result{
+	background-color:#3f1d01;
+	padding:2%;	
+	word-wrap: break-word;
+}
+
+.save-result:hover{
+	background-color:#532502;
+	
+}
+
 
 

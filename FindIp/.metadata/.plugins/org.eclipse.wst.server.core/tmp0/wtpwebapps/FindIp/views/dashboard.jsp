@@ -14,26 +14,28 @@
 	<div id="pageTitle" class="text-center">Dashboard</div>
 	
 	<div class="col-xs-12 text-center">
-		<a href="updateAccount.do">Change Email or Password</a>
+		<a href="updateAccount.do">Change Your Email or Password</a>
 	</div>
 
 	
 	
 	<div ng-app="userDataApp" ng-controller="userController">
 		<h2>Your Saves:</h2>
-			<div class="col-xs-12 col-md-4" ng-repeat="s in userData.saves">
+			<div class="col-xs-12 col-md-6 save-result" ng-repeat="s in userData.saves">
 				<ul>
-					<li>{{s.address.startIp}} to {{s.address.endIp}}</li>
-					<li>{{s.address.city}}, {{s.address.region}}, {{s.address.countryName}} </li>
+					<li>Address range: {{s.address.startIp}} to {{s.address.endIp}}</li>
+					<li>Location: {{s.address.city}}, {{s.address.region}}, {{s.address.countryName}} </li>
 					<li>Lat: {{s.address.latitude}} Lon: {{s.address.longitude}}</li>
-					<li>Comments
-						<ul>
+					<li ng-show="s.publicComment || s.privateComment">Comments:
+						<ul ng-show="s.publicComment">Public:
 							<li ng-show="s.publicComment">{{s.publicComment}}</li>
+						</ul>
+						<ul ng-show="s.privateComment">Public:
 							<li ng-show="s.privateComment">{{s.privateComment}}</li>
 						</ul>
 					</li>
-					<li><button ng-click="deleteSave(s.id)">DELETE</button></li>
 				</ul>
+					<button class="fill_div" ng-click="deleteSave(s.id)">DELETE</button>
 			</div>
 		
 	
