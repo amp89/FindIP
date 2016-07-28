@@ -20,6 +20,16 @@ public class IpNavigationController {
 	private IpDAO dao;
 
 
+
+	//TODO remove this method.
+	@RequestMapping(path = "bootstraptest", method = RequestMethod.GET)
+	private ModelAndView bootstraptest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("bootStrapTest");
+		return mv;
+	}
+
+	
 	
 	@RequestMapping(path = "search", method = RequestMethod.GET)
 	private ModelAndView setUpSearch(HttpSession session) {
