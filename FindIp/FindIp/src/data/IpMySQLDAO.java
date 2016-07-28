@@ -254,6 +254,8 @@ public class IpMySQLDAO implements IpDAO {
 	public List<String> getPublicComments(Integer addressId){
 		Address a = em.find(Address.class, addressId);
 		List<Save> saves = a.getSaves();
+		System.out.println("DAO: address: " + a);  //TODO remove
+		System.out.println("DAO: address: saves " + a.getSaves()); //TODO remove
 		List<String> publicComments = new ArrayList<>();
 		for (Save s : saves) {
 			publicComments.add(s.getPublicComment());
@@ -261,12 +263,7 @@ public class IpMySQLDAO implements IpDAO {
 		return publicComments;
 	}
 
-	// get public comments for an address
-	@Override
-	public List<String> getIpPublicComments(Integer addressId) {
-		
-		return null;  // i think these are included with the getIpStats method TODO remove
-	}
+
 	
 	public void sendMail(String email, String confid){
 		Mailer mailer = new Mailer(email,"IPFind Account Confirmation", ""

@@ -63,10 +63,8 @@ public interface IpDAO {
 	// search
 	public Address getIpStats(IpSearchObject ipso);
 	
-	public List<String> getPublicComments(Integer addressId);
+	public List<SingleComment> getPublicComments(Integer addressId);
 	
-	//get public comments for an address
-	public List<String> getIpPublicComments(Integer addressId);
 
 	public String updateSelf(UserEditObject editedUser);
 	
