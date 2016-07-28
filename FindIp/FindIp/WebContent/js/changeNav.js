@@ -7,6 +7,8 @@ $(document).ready(function(){
 	$(".dropdown-menu a").css("color","#ffffff");
 	$(".dropdown-menu li").css("background-color","#dc7700");
 	$(".dropdown-menu li").css("color","#ffffff");
+	$(".dropdown-menu li.divider").css("color","#ffffff");
+	$(".dropdown-menu li.divider").css("background-color","#dc7700");
 	$(".dropdown .open").css("background-color","#804300");
 		
 });

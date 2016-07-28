@@ -74,6 +74,7 @@
 				$scope.ipSaveData.privateComment = "";
 				//$scope.saveMessage = response.data.message;
 				$scope.saveMessage = "Save successful!";
+				$scope.getComments();
 				//save message TODO 
 			},function error(response){
 				$scope.saveMessage = "Save Successful";

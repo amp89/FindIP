@@ -1,11 +1,57 @@
 body{
 	background-color:#ff8b00;
 	color:white;
+	text-shadow: 1px 1px 1px  979796;
 	font-family:arial;
+	padding-bottom:5%;
 }
 
-.pageTitle{
+#pageTitle{
 	font-size: 5em;
-	text-align: center;
+	text-align:center;
 	margin:auto;
 }
+
+input{
+	color:black;
+}
+textarea{
+	color:black;
+}
+
+
+button{
+	background-color:#00a600;
+	color:white;
+	border:none;
+	text-decoration: none;
+}
+
+button:hover{
+	background-color:#0c6200;
+	
+}
+button:disabled{
+	background-color:#ac2b00;	
+}
+
+
+button:disabled:hover{
+	background-color:#751401;	
+	
+}
+
+.fill_div{
+	width:100%;
+}
+
+.credit{
+	font-size:.6em;
+}
+
+.user-result{
+	margin-bottom:12px;
+}
+
+
+

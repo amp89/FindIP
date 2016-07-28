@@ -1,38 +1,50 @@
 <%@ include file="../JSPIncludes/headAndNav.jsp"%>
 
 <br><br>
+	<script>
+	$(document).ready(function(){
+		$("title").text("IpFind | My Stuff");
+	});
+	</script>
+
 <c:if test="${!empty(user) && user.userType.accessLevel > 0}">
 	
-	Dashboard
-	<br>
-	<br>
-	<a href="updateAccount.do">Change Email or Password</a>
-	<br>
-	<br>
+<div class="container">
+	<div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+	<div id="pageTitle" class="text-center">Dashboard</div>
+	
+	<div class="col-xs-12 text-center">
+		<a href="updateAccount.do">Change Email or Password</a>
+	</div>
+
 	
 	
 	<div ng-app="userDataApp" ng-controller="userController">
-	Your Saves:
-	<ul>
-		<li ng-repeat="s in userData.saves">
-			<ul>
-				<li>{{s.address.startIp}} to {{s.address.endIp}}</li>
-				<li>{{s.address.city}}, {{s.address.region}}, {{s.address.countryName}} </li>
-				<li>Lat: {{s.address.latitude}} Lon: {{s.address.longitude}}</li>
-				<li>Comments
-					<ul>
-						<li ng-show="s.publicComment">{{s.publicComment}}</li>
-						<li ng-show="s.privateComment">{{s.privateComment}}</li>
-					</ul>
-				</li>
-				<li><button ng-click="deleteSave(s.id)">DELETE</button></li>
-			</ul>
-		</li>
-	</ul>
-	
+		<h2>Your Saves:</h2>
+			<div class="col-xs-12 col-md-4" ng-repeat="s in userData.saves">
+				<ul>
+					<li>{{s.address.startIp}} to {{s.address.endIp}}</li>
+					<li>{{s.address.city}}, {{s.address.region}}, {{s.address.countryName}} </li>
+					<li>Lat: {{s.address.latitude}} Lon: {{s.address.longitude}}</li>
+					<li>Comments
+						<ul>
+							<li ng-show="s.publicComment">{{s.publicComment}}</li>
+							<li ng-show="s.privateComment">{{s.privateComment}}</li>
+						</ul>
+					</li>
+					<li><button ng-click="deleteSave(s.id)">DELETE</button></li>
+				</ul>
+			</div>
+		
 	
 	
 	</div>
+	
+	</div>
+
+</div>
+	
+
 	
 <%@ include file="../angular/apps/userDataApp.jsp"%>
 
