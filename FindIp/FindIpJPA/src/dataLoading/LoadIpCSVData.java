@@ -48,6 +48,7 @@ public class LoadIpCSVData {
 				if(counter++%10000 == 0){
 					System.out.println(counter);					
 				}
+				System.out.println("*****Current: " +  counter + " *****");
 				String[] lineTokens = line.trim().split("\",\"");
 				Long startIp = Long.parseLong(lineTokens[0].replace("\"", "").trim());
 				Long endIp = Long.parseLong(lineTokens[1].replace("\"", "").trim());
@@ -62,6 +63,7 @@ public class LoadIpCSVData {
 				Address newAddress = new Address(startIp, endIp, countryAbbreviation, countryName, region, city,
 						latitude, longitude, postalCode);
 				// persist addr
+				System.out.println("***** TO COMMIT *****" + newAddress);
 				em.persist(newAddress);
 				
 
