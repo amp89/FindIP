@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="dataHelpers.SaveDataHelper"/>
 <fullyQualifiedTypeName name="entities.Address"/>
 <fullyQualifiedTypeName name="data.DeleteSavePostObject"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="data.CurrentUser"/>
 <fullyQualifiedTypeName name="controllerHelper.UserControllerHelper"/>
 <fullyQualifiedTypeName name="entities.UserType"/>
@@ -28,4 +27,6 @@
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="data.RestMessageObject"/>
 <fullyQualifiedTypeName name="dataHelpers.UserDataHelper"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

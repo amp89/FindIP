@@ -38,13 +38,14 @@ public class LoadIpCSVData {
 		BufferedReader br = null;
 		try {
 			em.getTransaction().begin();
+			System.out.println(em.getTransaction().getRollbackOnly());
 			System.out.println("Start Read");
-			br = new BufferedReader(new FileReader(FILEPATH),1500000);
+			br = new BufferedReader(new FileReader(FILEPATH),2000000);
 			String line = "";
-			int counter = 0;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
-			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
-//				while (((line = br.readLine()) != null) && counter < 500000) { //TODO TEST LINE
-				if(++counter%10000 == 0){
+			int counter = 1;//TODO COUNTER TO STOP FOR TESTING.  REMOVE THIS.
+//			while ((line = br.readLine()) != null) { //TODO FULL DATA LINE
+				while (((line = br.readLine()) != null) && counter < 3887985) { //TODO TEST LINE
+				if(counter++%10000 == 0){
 					System.out.println(counter);					
 				}
 				String[] lineTokens = line.trim().split("\",\"");
@@ -68,11 +69,16 @@ public class LoadIpCSVData {
 
 		} catch (IOException ioe) {
 			System.err.println(ioe);
-		} finally {
+			
+		} catch (Exception e){
+		  e.printStackTrace();	
+		}finally {
+		
 			em.getTransaction().commit();
 			try {
 				System.out.println("LOAD HAS STOPPED");
 				br.close();
+				closeEntityManager();
 			} catch (IOException ioe2) {
 				System.err.println(ioe2);
 			}
